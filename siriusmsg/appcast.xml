@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="yes"?><!-- sparkle-sign-warning:
+IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
+--><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>SiriusMsg</title>
+        <item>
+            <title>0.0.1</title>
+            <pubDate>Wed, 27 May 2026 13:20:28 -0400</pubDate>
+            <sparkle:version>2</sparkle:version>
+            <sparkle:shortVersionString>0.0.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <sparkle:releaseNotesLink sparkle:edSignature="LCbzJCsYJ686Y0fs6FIEyoPMpg3MWY0ct5enmLuZgUKKpbOS+kFwjwaju3GnsboWUbzC4y1G26NQ31NFeJC6BQ==" sparkle:length="1282">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.0.1-build.2/SiriusMsg-notarized.dmg" length="8623720" type="application/octet-stream" sparkle:edSignature="wKEbMxxxUF6WYdu8zHav71IrD3UfLFRaizARVi9g1I3sipgMd4Pfd79yOW9Sp78/B3J8LuPbP8XNpmu0SfC2CQ=="></enclosure>
+        </item>
+    </channel>
+</rss><!-- sparkle-signatures:
+edSignature: owvs2o03J/OXqUhy02llYwvDRS+YTPqJmoBrynIVCqWMP9lLls7qCJARtN5EOfC+4/uUuCKBaz4DwOVv8U9mAg==
+length: 1400
+-->
