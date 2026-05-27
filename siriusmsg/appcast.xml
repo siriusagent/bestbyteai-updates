@@ -10,11 +10,11 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
             <sparkle:shortVersionString>0.0.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <sparkle:releaseNotesLink sparkle:edSignature="LCbzJCsYJ686Y0fs6FIEyoPMpg3MWY0ct5enmLuZgUKKpbOS+kFwjwaju3GnsboWUbzC4y1G26NQ31NFeJC6BQ==" sparkle:length="1282">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
+            <sparkle:releaseNotesLink sparkle:edSignature="Aqj96PWpnw7va/EXW+vPPT1CrgeUyM0G5nhkh5Trt9tHxQnjFPCrlAtAJa2vca1af8/+VkVxuuX08Q15hBrIBw==" sparkle:length="1478">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
             <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.0.1-build.2/SiriusMsg-notarized.dmg" length="8623720" type="application/octet-stream" sparkle:edSignature="wKEbMxxxUF6WYdu8zHav71IrD3UfLFRaizARVi9g1I3sipgMd4Pfd79yOW9Sp78/B3J8LuPbP8XNpmu0SfC2CQ=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: owvs2o03J/OXqUhy02llYwvDRS+YTPqJmoBrynIVCqWMP9lLls7qCJARtN5EOfC+4/uUuCKBaz4DwOVv8U9mAg==
+edSignature: QDKFrJ/fR2aKG3Vo42u4Vp1SmwR3M0+CU4nEsSetbUFTnX/km6zqqE+qmM/2FL3wtpFAPCLRqIh7+FvcZd1xDQ==
 length: 1400
 -->
