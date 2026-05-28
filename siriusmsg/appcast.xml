@@ -5,16 +5,16 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         <title>SiriusMsg</title>
         <item>
             <title>0.0.1</title>
-            <pubDate>Thu, 28 May 2026 15:33:05 -0400</pubDate>
-            <sparkle:version>3</sparkle:version>
+            <pubDate>Thu, 28 May 2026 16:45:04 -0400</pubDate>
+            <sparkle:version>4</sparkle:version>
             <sparkle:shortVersionString>0.0.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <sparkle:releaseNotesLink sparkle:edSignature="TVK/pWwJSpq0A1plIRBR3EnupTcV0VKqXTdZhq+nnuP6nim/lK1RwnDK0mXwX8DYudTo+bg0MaQqxebSdjhIAQ==" sparkle:length="893">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.0.1-build.3/SiriusMsg-notarized.dmg" length="8628852" type="application/octet-stream" sparkle:edSignature="Nnj7KvltkwqMR8EopLWrztiG4Yy321qGjwupP1ddIRtuyXHBZrlUqmFfVMU9PYAU2S9dc8jrZf+M68RbIF6dBw=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="aG9kcF9lralI5XZEVi7JQWwax2pjU1BuVphOYzVu3aROTarNmW1t9cCIc6Sz1q5DYtjrlPcWIkXGJZaDbUfCCw==" sparkle:length="1142">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.0.1-build.4/SiriusMsg-notarized.dmg" length="8634038" type="application/octet-stream" sparkle:edSignature="1OrhCg5LDPVIFgCqVKWs9R4tuen9pzuekcHGHvWxX4mLsMufi5MNGsDAgI+jVP3vAShQs9CYXl2k1mHkq3eTAQ=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: C2rnjL9X1eLWTX9OkuCqGqkxSRAsx7tH38ulmdaXnVn9zCFNkh/YDCZiLuERzJVYupA8p8morHs6N90mD1WZCw==
-length: 1399
+edSignature: 2lWckY/MKlVOgJDCTqP0e/P3SGETB3tskNAgAjlvzxl2M6N4xvYncGH4DPKsEL4TdOduIcdhaUptHNFusFeUBg==
+length: 1400
 -->
