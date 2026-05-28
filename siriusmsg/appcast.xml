@@ -5,16 +5,16 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         <title>SiriusMsg</title>
         <item>
             <title>0.0.1</title>
-            <pubDate>Wed, 27 May 2026 13:20:28 -0400</pubDate>
-            <sparkle:version>2</sparkle:version>
+            <pubDate>Thu, 28 May 2026 15:33:05 -0400</pubDate>
+            <sparkle:version>3</sparkle:version>
             <sparkle:shortVersionString>0.0.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <sparkle:releaseNotesLink sparkle:edSignature="Aqj96PWpnw7va/EXW+vPPT1CrgeUyM0G5nhkh5Trt9tHxQnjFPCrlAtAJa2vca1af8/+VkVxuuX08Q15hBrIBw==" sparkle:length="1478">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.0.1-build.2/SiriusMsg-notarized.dmg" length="8623720" type="application/octet-stream" sparkle:edSignature="wKEbMxxxUF6WYdu8zHav71IrD3UfLFRaizARVi9g1I3sipgMd4Pfd79yOW9Sp78/B3J8LuPbP8XNpmu0SfC2CQ=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="TVK/pWwJSpq0A1plIRBR3EnupTcV0VKqXTdZhq+nnuP6nim/lK1RwnDK0mXwX8DYudTo+bg0MaQqxebSdjhIAQ==" sparkle:length="893">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.0.1-build.3/SiriusMsg-notarized.dmg" length="8628852" type="application/octet-stream" sparkle:edSignature="Nnj7KvltkwqMR8EopLWrztiG4Yy321qGjwupP1ddIRtuyXHBZrlUqmFfVMU9PYAU2S9dc8jrZf+M68RbIF6dBw=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: QDKFrJ/fR2aKG3Vo42u4Vp1SmwR3M0+CU4nEsSetbUFTnX/km6zqqE+qmM/2FL3wtpFAPCLRqIh7+FvcZd1xDQ==
-length: 1400
+edSignature: C2rnjL9X1eLWTX9OkuCqGqkxSRAsx7tH38ulmdaXnVn9zCFNkh/YDCZiLuERzJVYupA8p8morHs6N90mD1WZCw==
+length: 1399
 -->
