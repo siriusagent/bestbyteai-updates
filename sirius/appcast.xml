@@ -5,16 +5,16 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         <title>Sirius</title>
         <item>
             <title>0.1.0-alpha.6</title>
-            <pubDate>Fri, 05 Jun 2026 14:17:05 -0400</pubDate>
+            <pubDate>Fri, 05 Jun 2026 14:43:40 -0400</pubDate>
             <sparkle:version>6</sparkle:version>
             <sparkle:shortVersionString>0.1.0-alpha.6</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <sparkle:releaseNotesLink sparkle:edSignature="6X5kjFjDpninf6kMmz1m4D573w9vUETEywpfgx25Fz4FIpVQe7Gy5m4rYMUPmjfkc9rwOv9rpRs0BpmRzKglBg==" sparkle:length="1199">https://updates.bestbyteai.com/sirius/Sirius.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusagent/releases/download/v0.1.0-alpha.6/Sirius.dmg" length="72692630" type="application/octet-stream" sparkle:edSignature="tteI+sSgPQ7x87oX1szhPjkH2PPS1w9NpkJhB2gep29rkQaU4BE4jNT5dTsT0skZI8cEENxAZz3IAKpkRZfiAg=="></enclosure>
+            <enclosure url="https://github.com/siriusagent/siriusagent/releases/download/v0.1.0-alpha.6/Sirius.dmg" length="64171004" type="application/octet-stream" sparkle:edSignature="b3EcPb7lcHZJEwYc61fzEkGeE5G0xP0EnMzHEhGXcqW5AaDwivxKJjhTnH6/PyQLFoyVJ7qS6zAAY/K3V/5uDQ=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: 25oRRtf1ql1XCgGJxmlaKHsTIwPMK8cANZpZDqL27OVhB02L3ZBB0d4Ham8QgoWl8tZjF13TOziHxjWMg2jQCg==
+edSignature: uJUj+ViBqjGkJhRInGe6ULhNutzHTjbWfj5R98+VSxx3hHCbaCqcfLjQgc0fTL4XIETr9+a0MkLsTuzpSJfFAA==
 length: 1387
 -->
