@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.4
+# Sirius v0.1.0-alpha.5
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,11 +9,15 @@ compatibility promise, or support boundary.
 
 ## Fixes
 
-- Fixes an installed-app crash when installing terminal shell integration from
-  Settings.
-- Removes trapping SwiftPM resource-bundle lookups from runtime SiriusUI
-  resource paths used by terminal, Mind, DiffTree, and OAuth callback surfaces.
-- Ships as build `4`, allowing Sparkle to update alpha.3/build `3` installs.
+- Prevents low-memory installs from implicitly loading the local
+  sentence-transformers embedding model during startup/backfill unless explicitly
+  configured with `SIRIUS_MEMORY_EMBEDDING_BACKEND=local`.
+- Pins production Python worker BLAS threads to one to reduce native library
+  overcommit during early worker boot.
+- Stops channel event polling once SwiftPython reports the pinned service worker
+  is permanently dead, instead of repeatedly submitting drain work to the dead
+  worker.
+- Ships as build `5`, allowing Sparkle to update alpha.4/build `4` installs.
 
 ## Distribution
 
