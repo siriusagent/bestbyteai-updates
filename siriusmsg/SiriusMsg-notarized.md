@@ -1,20 +1,20 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file is signed into the Sparkle appcast. Any modifications require re-running generate_appcast or sign_update before publishing.
 -->
-# SiriusMsg 0.0.1 (build 4)
+# SiriusMsg 0.0.1 (build 5)
 
-Maintenance release that refreshes the bundled SwiftPython runtime with a
-reliability fix.
+Maintenance release that fixes the signed-product Python runtime bundle so
+SiriusMsg runs on a clean Mac without Homebrew Python.
 
 ## Changed
 
-- Updated `SwiftPythonRuntime` to `swiftpython-commercial` `v0.5.4`, carrying the
-  matched signed `SwiftPythonWorker` sidecar. This release fixes a worker-channel
-  desync in the underlying IPC layer: an oversized worker response no longer
-  strands bytes on the socket, so the channel recovers cleanly instead of
-  repeatedly surfacing the same error. The Messages bridge, allowlist gating,
-  read-only store access, send dispatch, and SwiftPython hook/adapter surface are
-  unchanged.
+- Embedded `Python.framework` inside the bundled `SiriusMsgAgent.app` login item.
+- Rewrote `SiriusMsgHooks.framework` and `SwiftPythonWorker` load commands away
+  from `/opt/homebrew/opt/python@3.13` and into the nested app bundle.
+- Replaced Homebrew global `site-packages` with an app-local directory and
+  disabled Python bytecode writes for hosted adapters.
+- Updated `SwiftPythonRuntime` and `SwiftPythonWorker` to
+  `swiftpython-commercial` `v0.5.5`.
 
 ## Verification
 
@@ -22,5 +22,7 @@ reliability fix.
 - DMG notarization: accepted by Apple notary service.
 - Gatekeeper: accepted as Notarized Developer ID.
 - DMG image verification: valid.
-- Public bundle scan: no private developer paths, private repository owner URLs,
-  credential-shaped tokens, or Python bytecode caches.
+- Mounted DMG payload verification: nested agent bundles `Python.framework`,
+  `SiriusMsgHooks.framework`, and `SwiftPythonWorker` without Homebrew, user-home,
+  checkout, private source, bytecode cache, or global `site-packages` linkage.
+- Operational validation gate: passed with the notarized DMG path.

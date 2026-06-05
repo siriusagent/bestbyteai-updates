@@ -5,16 +5,16 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         <title>SiriusMsg</title>
         <item>
             <title>0.0.1</title>
-            <pubDate>Thu, 28 May 2026 16:45:04 -0400</pubDate>
-            <sparkle:version>4</sparkle:version>
+            <pubDate>Fri, 05 Jun 2026 08:36:59 -0400</pubDate>
+            <sparkle:version>5</sparkle:version>
             <sparkle:shortVersionString>0.0.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <sparkle:releaseNotesLink sparkle:edSignature="aG9kcF9lralI5XZEVi7JQWwax2pjU1BuVphOYzVu3aROTarNmW1t9cCIc6Sz1q5DYtjrlPcWIkXGJZaDbUfCCw==" sparkle:length="1142">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.0.1-build.4/SiriusMsg-notarized.dmg" length="8634038" type="application/octet-stream" sparkle:edSignature="1OrhCg5LDPVIFgCqVKWs9R4tuen9pzuekcHGHvWxX4mLsMufi5MNGsDAgI+jVP3vAShQs9CYXl2k1mHkq3eTAQ=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="z66hFizzsMj85FdjFumGAdFk4vq2HWfy2PAHd7zoGEhrtFHamn+5tCTUpA7mcHYC9vDY5vcFK+sycPmOh22xDQ==" sparkle:length="1321">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.0.1-build.5/SiriusMsg-notarized.dmg" length="28025779" type="application/octet-stream" sparkle:edSignature="40dtqMLIPjsEXd8YnNkra0EzK0zrS+bbb/m6jJG8Pi87YMd0X4KqtEVZHAcklm9LnFpBU97bomOz9EBINnRoAA=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: 2lWckY/MKlVOgJDCTqP0e/P3SGETB3tskNAgAjlvzxl2M6N4xvYncGH4DPKsEL4TdOduIcdhaUptHNFusFeUBg==
-length: 1400
+edSignature: jHXQ51SdMOMaHUFmdppAfWv8T5ffidgnnUkOxDrubd02syic53JSK7iFdDmJ62OUt0v3oS1xmJ4JvJS7vWUUAQ==
+length: 1401
 -->
