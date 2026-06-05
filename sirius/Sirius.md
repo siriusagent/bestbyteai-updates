@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.7
+# Sirius v0.1.0-alpha.8
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,17 +9,17 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- Fixes the iMac launch failure where a downloaded, quarantined Sirius install
-  could show "Sirius is damaged and can't be opened" even though `spctl` and
-  `codesign` accepted the copied app.
-- Normalizes the embedded Python framework so only Mach-O files retain
-  executable bits. Plain Python helper scripts are no longer treated as
-  executable payloads by LaunchServices, syspolicyd, or XProtect.
-- Adds a release-gate check that rejects executable-bit non-Mach-O Python files
-  before a DMG can ship.
-- Keeps the public app build on the no-seed runtime path: the signed app does
-  not bundle `sirius_agent`; it installs the core runtime from the signed Sirius
-  runtime feed after first-run setup.
+- Updates the embedded SwiftPython runtime dependency to `swiftpython-commercial`
+  `0.5.8`, picking up the host resource-pressure gating fix for worker pool
+  startup.
+- Adds a 60 second startup deadline around the post-pool worker runtime bind.
+  If binding stalls, Sirius now cancels the boot attempt, shuts down the partial
+  worker pool, and surfaces a retryable boot error instead of staying at
+  "Starting engine...".
+- Caps low-memory hosts under 12 GiB physical RAM at two workers to reduce
+  first-boot pressure on 8 GiB Macs.
+- Adds boot telemetry for warmup, bridge pre-bind, runtime bind, timeout, and
+  cleanup phases without logging secrets or config payloads.
 
 ## Distribution
 
