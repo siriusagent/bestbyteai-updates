@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.8
+# Sirius v0.1.0-alpha.9
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,20 +9,21 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- Updates the embedded SwiftPython runtime dependency to `swiftpython-commercial`
-  `0.5.8`, picking up the host resource-pressure gating fix for worker pool
-  startup.
-- Adds a 60 second startup deadline around the post-pool worker runtime bind.
-  If binding stalls, Sirius now cancels the boot attempt, shuts down the partial
-  worker pool, and surfaces a retryable boot error instead of staying at
-  "Starting engine...".
-- Caps low-memory hosts under 12 GiB physical RAM at two workers to reduce
-  first-boot pressure on 8 GiB Macs.
-- Adds boot telemetry for warmup, bridge pre-bind, runtime bind, timeout, and
-  cleanup phases without logging secrets or config payloads.
+- Updates the embedded SwiftPython runtime dependency to
+  `swiftpython-commercial` `0.5.9`, picking up the corrected macOS
+  resource-pressure spawn gate for low-memory hosts.
+- Publishes a new signed core runtime archive so Python-side MCP changes are
+  available through the update feed, not only through a freshly installed DMG.
+- Switches MCP OAuth setup to a Swift-owned loopback redirect session before
+  launching the browser, avoiding custom-scheme callback crashes and making the
+  callback URI match the Python-side OAuth request.
+- Keeps the alpha.8 boot deadline and low-memory two-worker cap, so startup
+  failures continue to surface as retryable boot errors instead of permanent
+  "Starting engine..." hangs.
 
 ## Distribution
 
 - Signed with Developer ID.
 - Notarized and stapled.
-- Sparkle public key and update feed are enabled for alpha update testing.
+- Sparkle public key, appcast, and signed core-runtime update feed are enabled
+  for alpha update testing.
