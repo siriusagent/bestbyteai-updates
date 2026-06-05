@@ -4,17 +4,17 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>Sirius</title>
         <item>
-            <title>0.1.0-alpha.5</title>
-            <pubDate>Fri, 05 Jun 2026 11:32:16 -0400</pubDate>
-            <sparkle:version>5</sparkle:version>
-            <sparkle:shortVersionString>0.1.0-alpha.5</sparkle:shortVersionString>
+            <title>0.1.0-alpha.6</title>
+            <pubDate>Fri, 05 Jun 2026 14:17:05 -0400</pubDate>
+            <sparkle:version>6</sparkle:version>
+            <sparkle:shortVersionString>0.1.0-alpha.6</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <sparkle:releaseNotesLink sparkle:edSignature="Xvt8+rNsc116St1KdaJLfMSJNBQ9YK9mItFcb7+rODoruKfE9uwoBpggAC49y1ahfnUH0lq47/JJILiu5OrUCQ==" sparkle:length="1187">https://updates.bestbyteai.com/sirius/Sirius.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusagent/releases/download/v0.1.0-alpha.5/Sirius.dmg" length="131279875" type="application/octet-stream" sparkle:edSignature="36rMatiNaq2LoAxpvPmbP9IydO3gZyQkY99hNBBlqtD5q1P/obYDtZ/tnL3bNvf6mSnYyQK8vpmoBYx/aDFaAg=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="6X5kjFjDpninf6kMmz1m4D573w9vUETEywpfgx25Fz4FIpVQe7Gy5m4rYMUPmjfkc9rwOv9rpRs0BpmRzKglBg==" sparkle:length="1199">https://updates.bestbyteai.com/sirius/Sirius.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/siriusagent/siriusagent/releases/download/v0.1.0-alpha.6/Sirius.dmg" length="72692630" type="application/octet-stream" sparkle:edSignature="tteI+sSgPQ7x87oX1szhPjkH2PPS1w9NpkJhB2gep29rkQaU4BE4jNT5dTsT0skZI8cEENxAZz3IAKpkRZfiAg=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: 33Ks2c3XYbpqgeUrXquP3IsQ07S+lsyyfuPq627UwcNyUwW52NoGk0sE1m0nOGswTPHPSb2o9wYAq4oCqV4JDg==
-length: 1388
+edSignature: 25oRRtf1ql1XCgGJxmlaKHsTIwPMK8cANZpZDqL27OVhB02L3ZBB0d4Ham8QgoWl8tZjF13TOziHxjWMg2jQCg==
+length: 1387
 -->
