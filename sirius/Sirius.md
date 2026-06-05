@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.6
+# Sirius v0.1.0-alpha.7
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,14 +9,17 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- Adds the first-run Sirius Setup flow with welcome, SwiftPython, capabilities,
-  license acceptance, core-runtime install verification, and launch gating.
-- Requires license acceptance before the agent runtime is installed or started.
-- Moves the core agent runtime out of the public app bundle and into a signed
-  runtime feed hosted under the Sirius update channel.
-- Builds the public signed product without a bundled `sirius_agent` runtime
-  seed, reducing what can be copied from the public DMG.
-- Keeps optional heavy components installable outside the signed app bundle.
+- Fixes the iMac launch failure where a downloaded, quarantined Sirius install
+  could show "Sirius is damaged and can't be opened" even though `spctl` and
+  `codesign` accepted the copied app.
+- Normalizes the embedded Python framework so only Mach-O files retain
+  executable bits. Plain Python helper scripts are no longer treated as
+  executable payloads by LaunchServices, syspolicyd, or XProtect.
+- Adds a release-gate check that rejects executable-bit non-Mach-O Python files
+  before a DMG can ship.
+- Keeps the public app build on the no-seed runtime path: the signed app does
+  not bundle `sirius_agent`; it installs the core runtime from the signed Sirius
+  runtime feed after first-run setup.
 
 ## Distribution
 

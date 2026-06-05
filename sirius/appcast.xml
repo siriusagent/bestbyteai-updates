@@ -4,17 +4,17 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>Sirius</title>
         <item>
-            <title>0.1.0-alpha.6</title>
-            <pubDate>Fri, 05 Jun 2026 14:43:40 -0400</pubDate>
-            <sparkle:version>6</sparkle:version>
-            <sparkle:shortVersionString>0.1.0-alpha.6</sparkle:shortVersionString>
+            <title>0.1.0-alpha.7</title>
+            <pubDate>Fri, 05 Jun 2026 15:39:50 -0400</pubDate>
+            <sparkle:version>7</sparkle:version>
+            <sparkle:shortVersionString>0.1.0-alpha.7</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <sparkle:releaseNotesLink sparkle:edSignature="6X5kjFjDpninf6kMmz1m4D573w9vUETEywpfgx25Fz4FIpVQe7Gy5m4rYMUPmjfkc9rwOv9rpRs0BpmRzKglBg==" sparkle:length="1199">https://updates.bestbyteai.com/sirius/Sirius.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusagent/releases/download/v0.1.0-alpha.6/Sirius.dmg" length="64171004" type="application/octet-stream" sparkle:edSignature="b3EcPb7lcHZJEwYc61fzEkGeE5G0xP0EnMzHEhGXcqW5AaDwivxKJjhTnH6/PyQLFoyVJ7qS6zAAY/K3V/5uDQ=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="kCWCRoLXTYyXZuZDop3wwVXA4hAERnMDYG/V/NgJOk6Gwa1nEBV4rrbhNswiCyo/NFTdVCMm1JmOkQdYle9gBw==" sparkle:length="1325">https://updates.bestbyteai.com/sirius/Sirius.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/siriusagent/siriusagent/releases/download/v0.1.0-alpha.7/Sirius.dmg" length="64170672" type="application/octet-stream" sparkle:edSignature="tuRE2/hSI1ZBGUQluvsm3PD2UQ47tXqbCiJB4aX8y6StXPMI44UdDn40xAu8GIQNf73FDFrCRnYZGstxSb+mCQ=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: uJUj+ViBqjGkJhRInGe6ULhNutzHTjbWfj5R98+VSxx3hHCbaCqcfLjQgc0fTL4XIETr9+a0MkLsTuzpSJfFAA==
+edSignature: wJlPnI+WI144udD7Czh66kicusrBiFOl9Gy+Pqn1CTQrrPah/QUqFgEo+SPfYvpAsowil5CzW+/W17CgNip7AA==
 length: 1387
 -->
