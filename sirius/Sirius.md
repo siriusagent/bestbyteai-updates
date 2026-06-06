@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.10
+# Sirius v0.1.0-alpha.11
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,18 +9,20 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- Updates the embedded SwiftPython runtime dependency to
-  `swiftpython-commercial` `0.5.10`, picking up the ProcessPool respawn-budget
-  hardening, identical-error fingerprint cap, and forced-cleanup socket
-  interrupt fix from SwiftPython.
-- Surfaces the new SwiftPython per-error respawn exhaustion reasons through
-  Sirius worker-death banners with shortened SHA-256 fingerprints, so repeated
-  worker failures are easier to diagnose.
-- Recovers the first stale SwiftPython session-handle failure by rebuilding the
-  session and retrying before any stream output reaches the transcript.
-- Publishes signed core-runtime update metadata through Sparkle and the
-  Components settings flow, so future Python-side Sirius agent fixes can ship
-  without requiring a fresh DMG install.
+- Updates SiriusMarkdown to `0.5.5` so installed app bundles no longer crash
+  during HighlightJS or Mermaid resource preparation when SwiftPM's generated
+  resource-bundle accessor cannot resolve the package bundle.
+- Hardens the signed-bundle release gate so the app cannot ship without the
+  SiriusMarkdown HighlightJS/Mermaid resources, the SiriusUI resource bundle,
+  or the SwiftMath font bundle.
+- Tightens the signed core-runtime feed gate: generated manifests now carry a
+  `runtimeInputSHA256`, release verification validates the detached manifest
+  signature, rejects stale or unsafe runtime archives, and can compare against
+  the last shipped runtime digest or signed manifest.
+- Improves GitHub CLI discovery and Settings behavior by checking user-local
+  `gh` installs before system fallbacks, bounding non-interactive command
+  waits, clearing stale capability/status state, and documenting the same
+  discovery order for workers.
 
 ## Distribution
 
