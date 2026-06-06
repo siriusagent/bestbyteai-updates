@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.16
+# Sirius v0.1.0-alpha.17
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,14 +9,15 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- Keeps `tool_cycle_blocked` recovery-control results out of the transcript
-  body. Repeated empty `bash_status` polling still gets blocked by the engine,
-  but the UI now surfaces that as compact status chrome instead of rendering a
-  large red generic Tool card.
-- Preserves normal `bash_status` transcript rendering for real status, output,
-  and kill results.
-- Prevents already-persisted orphan tool-cycle control results from replaying as
-  stale red tool cards when a session is reopened.
+- Ships the hardened `bash_status` background-task lifecycle in the signed core
+  runtime payload. Task-specific waits still work for known running `task_id`s,
+  while blank/list-all waits return structured errors instead of feeding empty
+  polling loops.
+- Keeps completed background task records terminal and one-shot on the normal
+  status surface so the model cannot keep re-polling stale terminal states as
+  fake progress.
+- Updates the Swift host runtime package to `swiftpython-commercial` `0.5.13`,
+  picking up the public ProcessPool structured telemetry release.
 
 ## Distribution
 
