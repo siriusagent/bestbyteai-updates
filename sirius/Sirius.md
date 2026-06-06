@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.9
+# Sirius v0.1.0-alpha.10
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -10,16 +10,17 @@ compatibility promise, or support boundary.
 ## Changes
 
 - Updates the embedded SwiftPython runtime dependency to
-  `swiftpython-commercial` `0.5.9`, picking up the corrected macOS
-  resource-pressure spawn gate for low-memory hosts.
-- Publishes a new signed core runtime archive so Python-side MCP changes are
-  available through the update feed, not only through a freshly installed DMG.
-- Switches MCP OAuth setup to a Swift-owned loopback redirect session before
-  launching the browser, avoiding custom-scheme callback crashes and making the
-  callback URI match the Python-side OAuth request.
-- Keeps the alpha.8 boot deadline and low-memory two-worker cap, so startup
-  failures continue to surface as retryable boot errors instead of permanent
-  "Starting engine..." hangs.
+  `swiftpython-commercial` `0.5.10`, picking up the ProcessPool respawn-budget
+  hardening, identical-error fingerprint cap, and forced-cleanup socket
+  interrupt fix from SwiftPython.
+- Surfaces the new SwiftPython per-error respawn exhaustion reasons through
+  Sirius worker-death banners with shortened SHA-256 fingerprints, so repeated
+  worker failures are easier to diagnose.
+- Recovers the first stale SwiftPython session-handle failure by rebuilding the
+  session and retrying before any stream output reaches the transcript.
+- Publishes signed core-runtime update metadata through Sparkle and the
+  Components settings flow, so future Python-side Sirius agent fixes can ship
+  without requiring a fresh DMG install.
 
 ## Distribution
 
