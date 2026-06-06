@@ -1,5 +1,6 @@
-<?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:sirius="https://updates.bestbyteai.com/sirius/appcast" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><!-- sparkle-sign-warning:
+IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
+--><rss xmlns:sirius="https://updates.bestbyteai.com/sirius/appcast" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>Sirius</title>
         <item>
@@ -10,7 +11,10 @@
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <sparkle:releaseNotesLink sparkle:edSignature="WWtzOQ7gA8fdUA7vQW6pAw+DmNrvblJme6cc8/MOdRNWLQZizFX3cLi5jxc8LjeU1mpAQsv+/C6F646wj4IACA==" sparkle:length="1435">https://updates.bestbyteai.com/sirius/Sirius.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusagent/releases/download/v0.1.0-alpha.10/Sirius.dmg" length="64320814" type="application/octet-stream" sparkle:edSignature="SJdl9N9DP8G5AmlC+jfJk/Js92sQLJU5bs3Coou1TiR4YKksVwtQm2SkQipaxjoeS4WYk4evU3XRmosIOIaJBg==" />
+            <enclosure url="https://github.com/siriusagent/siriusagent/releases/download/v0.1.0-alpha.10/Sirius.dmg" length="64320814" type="application/octet-stream" sparkle:edSignature="SJdl9N9DP8G5AmlC+jfJk/Js92sQLJU5bs3Coou1TiR4YKksVwtQm2SkQipaxjoeS4WYk4evU3XRmosIOIaJBg=="></enclosure>
         <sirius:coreRuntimeVersion>0.1.0-alpha.10</sirius:coreRuntimeVersion><sirius:coreRuntimeManifestURL>https://updates.bestbyteai.com/sirius/runtime/core-runtime.json</sirius:coreRuntimeManifestURL><sirius:coreRuntimeSignatureURL>https://updates.bestbyteai.com/sirius/runtime/core-runtime.json.sig</sirius:coreRuntimeSignatureURL><sirius:coreRuntimeArchiveSHA256>786ba2c0e9e5d16e4252d44b44a8dd4863313d085e05de831d70894582d5153f</sirius:coreRuntimeArchiveSHA256></item>
     </channel>
-</rss>
+</rss><!-- sparkle-signatures:
+edSignature: 3MsTpt0Mq+xwe69AKNyk9WKqyryxaqr8mtkPzAT0wEjwZE0SzSDJCfuS6PO9KSaGssR/YPSMWRFSx6jVGPAACw==
+length: 1927
+-->
