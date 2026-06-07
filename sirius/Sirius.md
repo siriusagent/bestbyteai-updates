@@ -21,6 +21,12 @@ compatibility promise, or support boundary.
 - Fixes installed-app subprocess PATH resolution for user tools such as `npx`,
   `uvx`, `rg`, `gh`, and editor CLIs while keeping Sirius's embedded Python
   import environment out of child processes.
+- Replaces the static Ollama registry with a Sirius-owned Compatible Model Hub
+  that ranks HF GGUF models by local machine fit first, imports them through
+  Sirius model storage, and reports model-root provenance in diagnostics.
+- Clarifies that optional Python packages for MCP servers, tools, skills, and
+  integration extras are installed from Settings -> MCP, Tools & Skills ->
+  Components, not by modifying the sealed app bundle.
 
 ## Distribution
 
