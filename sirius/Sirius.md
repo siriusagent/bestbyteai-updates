@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.20
+# Sirius v0.1.0-alpha.21
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,14 +9,15 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- Fixes Help -> Report Bug AI generation when the app host has updated before
-  the installed core runtime component. Sirius now detects the stale-runtime
-  `generate_bug_report` missing-function error, installs a worker-local
-  compatibility shim, and retries the normal report-generation call once.
-- Keeps unrelated AI/provider failures visible instead of masking them as
-  compatibility problems.
-- Narrows the compatibility patch to the service worker that is generating the
-  report; active session workers are not touched.
+- Fixes a service-worker scheduling race that could make Context & Memory
+  knowledge-base rebuilds fail while background channel event polling was
+  active.
+- Serializes service-worker maintenance and settings calls, including memory
+  maintenance, cron, channels, GitHub, keychain prime, and credential refresh,
+  so worker-0 control-plane actions do not overlap each other.
+- Keeps the channel event poller active, but makes it wait behind any in-flight
+  maintenance action instead of submitting another worker command at the same
+  time.
 
 ## Distribution
 
