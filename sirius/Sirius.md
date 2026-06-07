@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.19
+# Sirius v0.1.0-alpha.20
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,18 +9,14 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- Adds Help -> Report Bug, a native local-first bug-report prototype that
-  captures the observed issue, session/screenshot context, visible error text,
-  recent app logs, recent SwiftPython pool telemetry, and an optional
-  `/usr/bin/sample` into a timestamped local bundle and ZIP.
-- Uses the configured Sirius background model, when available, to generate a
-  grounded report from the collected evidence. The report prompt separates
-  logged facts from likely interpretation and avoids inventing paths,
-  timestamps, or causes.
-- Opens a bounded GitHub issue draft and keeps the full local ZIP as the
-  attachment bundle, avoiding any Cloudflare/R2 dependency for this prototype.
-- Keeps the report window outside the known SwiftUI selection-overlay hang path
-  by using AppKit-backed multiline text views.
+- Fixes Help -> Report Bug AI generation when the app host has updated before
+  the installed core runtime component. Sirius now detects the stale-runtime
+  `generate_bug_report` missing-function error, installs a worker-local
+  compatibility shim, and retries the normal report-generation call once.
+- Keeps unrelated AI/provider failures visible instead of masking them as
+  compatibility problems.
+- Narrows the compatibility patch to the service worker that is generating the
+  report; active session workers are not touched.
 
 ## Distribution
 
