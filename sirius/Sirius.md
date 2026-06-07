@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.17
+# Sirius v0.1.0-alpha.18
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,15 +9,17 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- Ships the hardened `bash_status` background-task lifecycle in the signed core
-  runtime payload. Task-specific waits still work for known running `task_id`s,
-  while blank/list-all waits return structured errors instead of feeding empty
-  polling loops.
-- Keeps completed background task records terminal and one-shot on the normal
-  status surface so the model cannot keep re-polling stale terminal states as
-  fake progress.
-- Updates the Swift host runtime package to `swiftpython-commercial` `0.5.13`,
-  picking up the public ProcessPool structured telemetry release.
+- Wires SwiftPython ProcessPool structured telemetry into the Sirius host
+  runtime before bootstrap warmup, so startup, command, stream, side-channel,
+  callback, and worker lifecycle failures carry direct classification/reason
+  fields instead of relying on screenshot-era inference.
+- Adds session, worker, turn, command, stream, callback, and crash-evidence
+  context to runtime diagnostics and recovery banners. This is the foundation
+  for the in-app bug-report flow to generate grounded reports from user logs.
+- Captures explicit `build_session` and `get_session_id` diagnostics from the
+  session factory even when callers do not supply a telemetry context.
+- Fixes recovery banner refresh handling so a newer respawn event is not
+  cleared by a stale dismiss task from the previous banner instance.
 
 ## Distribution
 
