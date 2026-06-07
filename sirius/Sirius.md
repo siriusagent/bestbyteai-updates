@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.22
+# Sirius v0.1.0-alpha.23
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,26 +9,18 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- Replaces the generic Help -> Report Bug log bundle with a category-scoped
-  diagnostics flow that mirrors Settings, including Freeform.
-- Adds recommended and optional checks for Network & Providers, Credentials,
-  GitHub, Channels, Wallets, Context/Cron, MCP/Tools/Skills, and
-  Permissions/Security.
-- Collects deterministic, sanitized facts only: provider shape without secrets,
-  credential presence booleans, GitHub auth/capability status, channel and
-  wallet status, context/cron health, MCP/tool/skill counts, and selected
-  security settings.
-- Writes both `diagnostics.json` and readable `report.md` into the private local
-  bundle, with failed collectors recorded as `collector_failed` facts.
-- Keeps `/usr/bin/sample` as an explicit opt-in check and keeps full local
-  bundles private unless the user chooses to share them.
-- Fixes report markdown rendering so generated multiline text does not show
-  JSON-escaped `\n`.
-- Avoids malformed GitHub issue URLs by copying a concise sanitized body and
-  opening a title-only issue draft.
-- Verifies the packaged runtime and signed runtime feed include
-  `sirius_agent/providers/ollama_registry.json`, so installed builds can prove
-  local Ollama registry availability without a source checkout.
+- Fixes Report Bug -> MCP, Tools & Skills diagnostics when collection runs on
+  the service-worker control plane without a live session registry.
+- Reports the MCP SDK package version even when the SDK module lacks
+  `__version__`.
+- Reports deterministic default tool and skill counts instead of `0` when no
+  session registry is attached.
+- Adds bounded per-MCP-server enabled, probe-code, tool-count, resource-count,
+  and prompt-count facts without exposing server command, env, header, or secret
+  configuration.
+- Fixes installed-app subprocess PATH resolution for user tools such as `npx`,
+  `uvx`, `rg`, `gh`, and editor CLIs while keeping Sirius's embedded Python
+  import environment out of child processes.
 
 ## Distribution
 
