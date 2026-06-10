@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.42
+# Sirius v0.1.0-alpha.43
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,19 +9,18 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- Fixed browser webcam access in the shipped macOS app. The signed app now
-  declares camera usage, carries the camera entitlement, and keeps media capture
-  prompts on the native `WKWebView` app path.
-- Updated the microphone privacy text to cover browser microphone capture as
-  well as composer dictation.
-- Added release-verifier checks for camera/microphone privacy strings, app media
-  entitlements, and worker non-entitlement so the bundle contract cannot quietly
-  regress.
-- Improved Permissions & Security diagnostics for media capture. It now
-  separates missing hardware from privacy state, showing "No camera detected" or
-  "No microphone detected" before TCC status when a Mac has no capture device.
-- Carries alpha.41 fixes forward, including CLI sub-agents and inline
-  sub-agent answers in the transcript.
+- Fixed a provider-auth regression where a respawned worker could replay a
+  stale OpenAI API-key snapshot after the app had already saved a ChatGPT OAuth
+  configuration, surfacing `OpenAICompatibleProvider` HTTP 401 errors with no
+  API key.
+- Worker runtime rebinds now reload current provider config and prefetched
+  credentials at respawn time instead of using boot-time JSON.
+- Added an engine-side guard that routes stale OpenAI API-key snapshots through
+  the ChatGPT OAuth provider when the API-key secret is absent but the OAuth
+  credential is present.
+- Carries alpha.42 fixes forward, including shipped browser camera entitlement,
+  media privacy declarations, signed-bundle media checks, and no-camera/no-mic
+  diagnostics in Permissions & Security.
 
 ## Distribution
 
