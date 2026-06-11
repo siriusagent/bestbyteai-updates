@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.43
+# Sirius v0.1.0-alpha.44
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,18 +9,17 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- Fixed a provider-auth regression where a respawned worker could replay a
-  stale OpenAI API-key snapshot after the app had already saved a ChatGPT OAuth
-  configuration, surfacing `OpenAICompatibleProvider` HTTP 401 errors with no
-  API key.
-- Worker runtime rebinds now reload current provider config and prefetched
-  credentials at respawn time instead of using boot-time JSON.
-- Added an engine-side guard that routes stale OpenAI API-key snapshots through
-  the ChatGPT OAuth provider when the API-key secret is absent but the OAuth
-  credential is present.
-- Carries alpha.42 fixes forward, including shipped browser camera entitlement,
-  media privacy declarations, signed-bundle media checks, and no-camera/no-mic
-  diagnostics in Permissions & Security.
+- Fixed browser observation for pages with active camera/video streams. Existing
+  `browser_use_observe`, `browser_use_screenshot`, and `sirius_browser_describe`
+  results now report visible active media streams, track state, dimensions, and
+  bounded device labels when WebKit exposes them.
+- Added a guard for WebKit bitmap snapshots that omit live video layers:
+  screenshot results now carry `media_state` plus a capture note so Sirius does
+  not claim there is no camera feed solely because the saved bitmap missed live
+  media pixels.
+- Kept the tool surface unchanged. There is no camera-specific browser tool;
+  media awareness is part of the existing browser observation contract.
+- Carries alpha.43 provider-auth fixes forward.
 
 ## Distribution
 
