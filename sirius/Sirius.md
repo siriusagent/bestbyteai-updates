@@ -15,8 +15,7 @@ compatibility promise, or support boundary.
   show **Open** and select the contract instead of silently doing nothing.
 - **Signed API request contracts.** Signature auth defaults now generate the
   key, timestamp, and signature header templates from the declared key header
-  name. Kalshi-style contracts default to `KALSHI-ACCESS-KEY`,
-  `KALSHI-ACCESS-TIMESTAMP`, and `KALSHI-ACCESS-SIGNATURE`.
+  name, without vendor-specific signer code in the app.
 - **Signer compatibility.** The broker accepts both hyphenated and underscored
   signature algorithm names, so UI-authored `rsa-pss-sha256` contracts execute
   through `api_request` instead of failing at signing time.
