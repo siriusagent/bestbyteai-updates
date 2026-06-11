@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.46
+# Sirius v0.1.0-alpha.47
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,22 +9,26 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- Fixes a packaged-app crash when Markdown math rendering loads SwiftMath fonts;
-  SiriusMarkdown now guards the unsafe packaged-app SwiftMath entry path and
-  falls back safely instead of entering SwiftPM's generated `Bundle.module`
-  accessor.
-- Fixes missing-workspace recovery so stale project roots show
-  `Workspace Missing`, Git/worktree actions are gated until a real folder is
-  selected, and folder recovery starts at the nearest existing parent.
-- Fixes CLI-agent npm installs so user-scoped Node/npm paths survive the native
-  administrator fallback and install failures surface useful npm/AppleScript
-  output.
-- Hardens file mutation permissions so `write_file`, `edit_file`, and
-  `notebook_edit` canonicalize relative paths, traversal, symlink aliases, and
-  macOS `/private/etc` aliases before bypass/permissive modes can allow
-  sensitive paths.
-- Carries alpha.45 provider replay, forced-tool UI, browser media, and release
-  signing fixes forward.
+- **`api_request` — broker-mediated authenticated HTTP tool.** Models can now
+  make authenticated API calls against any declared credential contract without
+  ever seeing secrets. The broker resolves credentials, applies the auth scheme
+  (bearer, header, query, basic, or a fully declarative signature spec), and
+  redacts responses. Host-pinned, HTTPS-only, no redirects. GET/HEAD ride an
+  existing grant; mutating methods re-prompt every call.
+- **CLI sub-agents.** Any coding-agent CLI (Codex CLI, Claude Code, Gemini CLI,
+  or arbitrary binaries) is now dispatchable via `subagent_dispatch`. One-click
+  install in Agent & Subagents settings, live detection, and auto-enable on
+  success.
+- **Sub-agent answers read inline in the transcript.** Delegated reports flow
+  with the prose instead of being buried in a card body.
+- Fixes Gemini provider switching replaying Codex encrypted reasoning as a
+  Gemini `thoughtSignature`.
+- Fixes stale OpenAI API-key snapshots creating keyless public providers when
+  ChatGPT OAuth is present; respawned workers now reload current config.
+- Fixes goal mode letting narration-only turns silently end autonomous
+  continuation while the goal stayed active.
+- Fixes Anthropic document attachments failing for non-PDF attachments.
+- Carries all alpha.46 fixes forward.
 
 ## Distribution
 
