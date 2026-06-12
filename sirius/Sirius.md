@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.50
+# Sirius v0.1.0-alpha.51
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,13 +9,14 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- **Fresh credential reads for signed API requests.** The credential broker now
-  rereads Keychain values at the execution boundary for `api_request` and
-  one-shot bash/skill leases. Replacing a key in Settings no longer leaves an
-  already-running worker signing with stale private-key material.
-- **Kalshi contract cleanup.** Local Kalshi-style signature contracts should
-  sign `{timestamp_ms}{method}{path}` and keep the private key as a companion
-  secret, not as a separate HTTP contract.
+- **Permission preset changes no longer break local credential contracts.**
+  Switching the permission preset (or refreshing wallet/MCP permission state)
+  mid-session rebuilt the permission context without the live credential
+  broker, so `credential_request` denied user-defined credential contracts
+  with `unknown_requirement` even though `credential_status` showed them as
+  available. Every permission-context rebuild path now re-stamps the live
+  broker state, so locally declared contracts (e.g. Kalshi-style signature
+  contracts) stay requestable for the whole session.
 
 ## Distribution
 
