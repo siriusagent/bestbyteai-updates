@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.53
+# Sirius v0.1.0-alpha.54
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,22 +9,24 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- **Background task wakeups no longer create fake user bubbles.** Idle
-  background-task polls and watch events now run as hidden runtime-control turns:
-  the model still sees the control instruction, but the transcript does not
-  persist or render it as a human-authored message.
-- **OAuth sign-in retries release the loopback port immediately.** Provider
-  sign-in sheets now retain and cancel the active `OAuthLoopbackListener` on
-  Retry, Dismiss, Cancel, Save, auth-method switches, and sheet close. Cancelled
-  callback waits also tear down the listener instead of leaving the fixed
-  callback port bound until timeout.
-- **Sub-agent work stays readable without transcript row growth.** Sub-agent
-  dispatch and lifecycle beats stay standalone in the transcript and expose
-  agent, task, status, elapsed time, lifecycle detail, output/error text, and a
-  compact Work timeline through the annotation popover.
-- **CLI sub-agent output is decoded as UTF-8 consistently.** Raw CLI adapters
-  now decode subprocess text with UTF-8 plus replacement semantics, avoiding
-  ASCII-locale crashes when child agents emit symbols or non-ASCII text.
+- **Structured background watches.** Background `bash` tasks now support
+  rule-based watches, completion policies, debounced wakeups, persistent scan
+  offsets, and durable completion/failure events so monitors can wake the agent
+  on meaningful output without shallow polling loops.
+- **Parallel monitor isolation.** `execute_dag` bash steps keep independent PTY
+  sessions, while Swift-hosted agent terminals now preserve background-owned
+  commands across bridge generations and worker respawns instead of cancelling
+  or reusing the wrong backend.
+- **Safer background task control.** `bash_status(action="kill")` now verifies
+  terminal-owned task termination before removing a task; unverified forced
+  terminal kills stay registered as lost instead of silently disappearing.
+- **Credential-capable detached backgrounds.** Explicit background tasks can
+  use approved broker credentials through process-owned one-shot leases. Secrets
+  are injected only into the detached child environment, redacted before durable
+  task output is written, and never persisted in `background_tasks.json`.
+- **CLI sub-agent live output.** CLI sub-agent stdout/stderr streams into
+  progress tails for transcript annotations, and persisted sub-agent timeout
+  settings are applied at dispatch time.
 
 ## Distribution
 
