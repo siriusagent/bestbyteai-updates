@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.57
+# Sirius v0.1.0-alpha.58
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,16 +9,18 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- **First-window engine boot cancellation no longer leaks workers.** Sirius now
-  keeps engine boot owned by the app-lifetime runtime holder, so SwiftUI view
-  task cancellation during early launch cannot abort startup after the worker
-  pool has already spawned. Cancellation and non-timeout failures now clean up
-  partial runtime state the same way timeout already did.
-- **Pruned background tasks still show terminal event evidence.** If
-  `bash_status` checks a task id after the completed task record was already
-  pruned, queued events for that same task are returned in `recent_events` with
-  guidance to inspect the evidence and stop polling the stale handle. Events
-  for other tasks remain queued.
+- **Right-panel Agent terminal and Browser updates are visible again after
+  bridge topology refreshes.** Session-tagged terminal and browser callbacks
+  now resolve the active session's visible right-panel coordinators instead of
+  falling back to a stale/offscreen coordinator. This covers Agent PTY command
+  output, browser-use actions, and rendered `web_search` / `web_read` captures.
+- **DiffTree folder dirty-count badges no longer blank during fast refresh.**
+  The phase-1 filesystem navigator now preserves same-workspace dirty
+  decorations from the last promoted Git snapshot while the phase-2 Git status
+  promotion is still running.
+- **Background-events UI mockup is included for the current design handoff.**
+  The mockup records the existing watch/status surfaces without changing the
+  shipped app chrome.
 
 ## Distribution
 
