@@ -4,17 +4,17 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>Sirius</title>
         <item>
-            <title>0.1.0-alpha.56</title>
-            <pubDate>Sat, 13 Jun 2026 17:14:58 -0400</pubDate>
-            <sparkle:version>56</sparkle:version>
-            <sparkle:shortVersionString>0.1.0-alpha.56</sparkle:shortVersionString>
+            <title>0.1.0-alpha.57</title>
+            <pubDate>Sat, 13 Jun 2026 23:17:51 -0400</pubDate>
+            <sparkle:version>57</sparkle:version>
+            <sparkle:shortVersionString>0.1.0-alpha.57</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <sparkle:releaseNotesLink sparkle:edSignature="byTX0jSONQ8uBfV6kadU0rYL7C9crQ76/orVWht/mllPFoWZNdNHohaxnhm/boI1Vi5I9ft01pVcqV4+nJfEBw==" sparkle:length="1670">https://updates.bestbyteai.com/sirius/Sirius.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusagent/releases/download/v0.1.0-alpha.56/Sirius.dmg" length="65936299" type="application/octet-stream" sparkle:edSignature="NI+1VuuzrVFWoEZiCuGnbATXCu6iu88oRZF4cHnYlGnN9gE3cSAiMNTI0Wh5emojQx2/iOiYMgPFtqomqQQ9Dw=="></enclosure>
-        <sirius:coreRuntimeVersion>0.1.0-alpha.56</sirius:coreRuntimeVersion><sirius:coreRuntimeManifestURL>https://updates.bestbyteai.com/sirius/runtime/core-runtime.json</sirius:coreRuntimeManifestURL><sirius:coreRuntimeSignatureURL>https://updates.bestbyteai.com/sirius/runtime/core-runtime.json.sig</sirius:coreRuntimeSignatureURL><sirius:coreRuntimeArchiveSHA256>a5f764b38ec36e80f8c63f4212d551989d86a0a9ded5c271dc1f2c39f0e20fb2</sirius:coreRuntimeArchiveSHA256></item>
+            <sparkle:releaseNotesLink sparkle:edSignature="fSINTJFe6rHS4XzcPLW1vNX6/f3kLxxPGofAxG+NbVpvnnqxL74pB72U/Q7lK7P76vNLih+t4Dbmw5xbnSepBQ==" sparkle:length="1369">https://updates.bestbyteai.com/sirius/Sirius.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/siriusagent/siriusagent/releases/download/v0.1.0-alpha.57/Sirius.dmg" length="65932275" type="application/octet-stream" sparkle:edSignature="cVHKA/oRZT43J3IfEGpyhYBFGK4eEVZM0X7+oc1GdBEvBN3KIWtuD9lMF4U5UNuJYLPoPTh/VeeMrgEzXqaUAA=="></enclosure>
+        <sirius:coreRuntimeVersion>0.1.0-alpha.57</sirius:coreRuntimeVersion><sirius:coreRuntimeManifestURL>https://updates.bestbyteai.com/sirius/runtime/core-runtime.json</sirius:coreRuntimeManifestURL><sirius:coreRuntimeSignatureURL>https://updates.bestbyteai.com/sirius/runtime/core-runtime.json.sig</sirius:coreRuntimeSignatureURL><sirius:coreRuntimeArchiveSHA256>3f99a58914bde7d068dbff8dd837802c6c0b53963cec6c82c86a0eeafa539353</sirius:coreRuntimeArchiveSHA256></item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: O/65zddjr4CQmmFnmgwzd/cfgPHEvkyTwLySgdVMhpm8gOjLrUgg9HshBWChets871LXqdDHPrT+J7jSKnUJBQ==
+edSignature: RZ5UYFfEkxMiQQgJJL9Os/xj/zB2MiIlzzLb/ZkZMDYlWhAWt8bLprooHUCDHCQ8ioN0lr9S+qLLeUFEcDmiCA==
 length: 1927
 -->
