@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.63
+# Sirius v0.1.0-alpha.64
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,16 +9,14 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- **Background task wakes are durable and retryable.** Sirius now claims
-  background-event evidence before running an idle wake or goal continuation,
-  acknowledges it only after the stream finishes, and releases it for retry if
-  the wake is cancelled or fails.
-- **Status checks coordinate with host wakes.** `bash_status` now returns
-  structured `recent_event_records` while preserving events already claimed by
-  the Swift host, so model-side polling cannot steal wake evidence.
-- **Wake lifecycle is visible in the macOS app.** Transcript annotations and the
-  Goal status popover now show event phase, severity, sequence, ownership, and
-  timing details for queued, running, retry-pending, and acknowledged wakes.
+- **Long diagnosis replies render through SiriusMarkdown's production path.**
+  The transcript now uses SiriusMarkdown 0.5.8's CoreText-painted prepared-line
+  renderer instead of the older native-line compatibility fallback, reducing
+  SwiftUI text work during long streaming Markdown replies.
+- **The SiriusMarkdown integration contract is locked to the 0.5.8 API.**
+  Policy tests now assert the remote `0.5.8` dependency and the production
+  renderer mode so future transcript changes do not regress to the slower
+  fallback path.
 
 ## Distribution
 
