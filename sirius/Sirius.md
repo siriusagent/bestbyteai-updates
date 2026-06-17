@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.67
+# Sirius v0.1.0-alpha.68
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,11 +9,13 @@ compatibility promise, or support boundary.
 
 ## Fixes
 
-- **Telegram bridge replies use the stable plain-send path again.** Automatic
-  Telegram replies no longer depend on Telegram's rich-message endpoint.
-- **Rich Telegram sending remains explicit.** The dedicated rich Telegram
-  command is still available for direct sends and advanced Telegram fields,
-  but normal bridge replies stay on the ordinary bot-message path.
+- **Telegram channel chats opened in Sirius can reply again.** Messages sent
+  from a Telegram-backed chat in the Sirius sidebar now use the live channel
+  transport instead of failing with an unknown rich-send command.
+- **Provider-limit failures are clearer in channels.** When the selected model
+  or provider rejects a channel turn because of usage limits or credentials,
+  Sirius now tells the channel user what failed instead of sending the generic
+  retry message.
 
 ## Distribution
 
