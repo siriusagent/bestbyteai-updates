@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.70
+# Sirius v0.1.0-alpha.71
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,24 +9,23 @@ compatibility promise, or support boundary.
 
 ## Fixes
 
-- **Recall tool loops recover before flooding transcripts.** Repeated
-  no-progress memory, session-search, and tool-search calls now enter the
-  cycle-recovery lane after four consecutive recall attempts.
-- **Manual steers take the next turn before background wakeups.** Queued manual
-  steers are requeued before background events or goal continuations when a
-  turn ends idle, avoiding stuck "sent" steers.
-- **Telegram channel chats opened in Sirius can reply again.** Messages sent
-  from a Telegram-backed chat in the Sirius sidebar use the live channel
-  transport instead of failing with an unknown rich-send command.
-- **Provider-limit failures are clearer in channels.** When the selected model
-  or provider rejects a channel turn because of usage limits or credentials,
-  Sirius tells the channel user what failed instead of sending the generic
-  retry message.
+- **MCP OAuth works in noninteractive setup paths.** Streamable-HTTP MCP
+  servers that require browser login now preserve the configured loopback
+  redirect and report an actionable authorization state instead of failing
+  probe/startup behind a generic transport error.
+- **Backgrounded terminal prompts can receive input.** When Sirius
+  auto-backgrounds a terminal command that is waiting for a prompt, the agent
+  can now write stdin back into that same live process instead of restarting it
+  and invalidating OAuth PKCE state.
+- **Forced terminal stops hit the foreground command.** Non-control PTY signals
+  now target the terminal's current foreground process group, improving forced
+  cleanup for commands that are no longer in the shell's own process group.
 
 ## Distribution
 
-- Published as monotonic Sparkle build 70.
-- Ships a refreshed signed core-runtime feed for the memory-loop guard.
+- Published as monotonic Sparkle build 71.
+- Ships a refreshed signed core-runtime feed for the MCP OAuth and terminal
+  stdin fixes.
 - Signed with Developer ID.
 - Notarized and stapled.
 - Sparkle public key, signed appcast, and signed core-runtime update feed are
