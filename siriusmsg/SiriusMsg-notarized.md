@@ -1,34 +1,42 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file is signed into the Sparkle appcast. Any modifications require re-running generate_appcast or sign_update before publishing.
 -->
-# SiriusMsg 0.0.1 (build 7)
+# SiriusMsg 0.0.1 (build 8)
 
-Release update for the SDK pipeline, rich messaging parity work, and confirmed
-outbound attachment delivery.
+Release update for recipe runtime wiring, generated SDK parity, and honest rich
+messaging capability surfaces.
 
 ## Changed
 
-- Added the generated Python and TypeScript SDK pipeline and tightened SDK
-  subscription behavior so client contracts match the local protocol.
-- Re-exported rich messaging models through `SiriusMsgKit` and added parity
-  surfaces, recipe evidence, and validation smokes for rich-link/card flows.
-- Refreshed the app's Home, Checks, Adapters, Chats, Advanced, and Recipes
-  views around operational evidence, allowlists, adapter state, and release
-  validation controls.
+- Wired saved recipes into the signed agent runtime so allowlisted inbound
+  message, reaction, edit, and unsend events can trigger recipe actions through
+  the existing service send path.
+- Added shared recipe storage, hot reload, runtime health counts, and an app
+  reload control so recipe edits take effect without restarting the agent.
+- Published recipe runtime status and sanitized recipe adapter envelopes through
+  the public protocol schema, Python SDK models, and TypeScript SDK models.
+- Updated the Recipes app surface to separate enabled intent from agent-reported
+  running state, group inbound and send capabilities by direction, and label
+  webhook or schedule recipes as not running locally yet.
 
 ## Fixed
 
-- Fixed outbound file sends through Messages by staging attachments into a
-  Messages-readable user handoff location before ScriptingBridge dispatch.
-- Prevented failed attachment rows from being counted as send confirmation by
-  rejecting read-only Store matches with Messages delivery errors.
-- Allowed Store confirmation for Messages-transcoded image sends when the
-  delivered attachment keeps the requested display name and MIME type.
-- Added sanitized outbound attachment row diagnostics for release validation
-  without logging message bodies, raw handles, or full attachment paths.
+- Fixed the default artifact recipe so it has a real attachment placeholder and
+  no longer ships as an enable-able actionless recipe.
+- Preserved the `recipeNoActions` guard for user-authored draft recipes while
+  allowing the fixed default artifact recipe to run when its capabilities are
+  supported.
+- Prevented disabled recipes from showing an enabled-looking recipe glyph in the
+  app.
+- Made generated Python SDK models carry the same source-of-truth and
+  do-not-edit provenance header as TypeScript generated models.
 
 ## Verification
 
+- SDK generated artifact check: passed.
+- Swift test suite: passed.
+- Python SDK tests: passed.
+- TypeScript SDK build and tests: passed.
 - App notarization: accepted by Apple notary service.
 - DMG notarization: accepted by Apple notary service.
 - Gatekeeper: accepted as Notarized Developer ID.
@@ -38,5 +46,3 @@ outbound attachment delivery.
   user-home, checkout, private source, bytecode cache, or global
   `site-packages` linkage.
 - Operational validation gate: passed with the notarized DMG path.
-- Live signed-agent outbound file smoke: passed against a real PNG attachment,
-  confirmed through read-only Messages Store evidence.
