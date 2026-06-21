@@ -5,16 +5,16 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         <title>SiriusMsg</title>
         <item>
             <title>0.0.1</title>
-            <pubDate>Sat, 06 Jun 2026 10:49:11 -0400</pubDate>
-            <sparkle:version>6</sparkle:version>
+            <pubDate>Sun, 21 Jun 2026 11:59:37 -0400</pubDate>
+            <sparkle:version>7</sparkle:version>
             <sparkle:shortVersionString>0.0.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <sparkle:releaseNotesLink sparkle:edSignature="yG/5Z3ULt9yIckKjK4Sg2jVlpce4j5yis9MZ5rQzMK4nCZWy/IWasVHi4DlQRpEhUemnAOnJNgkMrdNZL9FjDw==" sparkle:length="1161">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.0.1-build.6/SiriusMsg-notarized.dmg" length="27229839" type="application/octet-stream" sparkle:edSignature="qt+VWbBOI+2bYduwk2HdOqXu6eGycAFfBGCMnhc0PCscSM7YKDDXzrYBx26LhhJGDUZaJm/jJJ+CtTEza/bRAQ=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="AMvGgwvL4hPzvLFUTUxvmYLve5iOG/hX+objqgPSEWuCTT9WTgVl8BbUb0Zx8eFe2LoS7nVnH/n6Lze9tXYiBQ==" sparkle:length="2045">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.0.1-build.7/SiriusMsg-notarized.dmg" length="28864366" type="application/octet-stream" sparkle:edSignature="MEAIpaqv4wmRZWQEO+78+UM11m0du+h5OYCeI1JZBXG+C3ewEgd01qUISJGg1YK5s0lVbvizvlSow3V0W/TiCQ=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: pPc9LpmPG+V73CUgV0iYHcurGxGpaK415vlOt53KLVm9m+MYiCAV9jXXaAxoZFgeL0AOmqK7leGkC3zIzAAPDA==
+edSignature: hWlWHE2ip/4HGrjApWqbr6SBhuNnSc/FSVdsVz346UJte/ldv54D60YwmDLBTnAevuIfUFUOQYoDzqh/MtvCDw==
 length: 1401
 -->
