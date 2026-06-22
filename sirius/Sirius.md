@@ -1,46 +1,35 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.75
+# Sirius v0.1.0-alpha.76
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
 compatibility promise, or support boundary.
 
-## Fixes
-
-- **Browser no longer crashes while logging telemetry.** A diagnostic-logging
-  path on the WebKit script-message delegate routed a main-actor closure through
-  `Optional.map`, which tripped the Swift 6 executor-isolation check and
-  segfaulted (`swift_task_isCurrentExecutorWithFlags`) on the `@objc` delegate
-  thread. The path now avoids the isolation-crossing call, matching the
-  `WebKitMainActorBridge` discipline. (BUG-268.)
-- **Composer dictation cannot crash during audio setup.** Microphone capture now
-  validates a default input device and usable input/tap formats before touching
-  the `AVAudioEngine` input node or preparing the graph, turning a missing
-  device or `0 ch` / `0 Hz` format into a recoverable "select an input device"
-  status message instead of an `AVAudioIONodeImpl::AUI` / `AVAudioEngineGraph`
-  crash. (BUG-267.)
-
 ## Changes
 
-- **Composer dictation runs on Apple's macOS 26 `SpeechAnalyzer` stack.**
-  Recognition now sits behind an internal backend seam with an honest, ordered
-  fallback chain — `SpeechTranscriber` → `DictationTranscriber` →
-  `SFSpeechRecognizer` (legacy floor) — chosen per session by locale and
-  on-device model-asset availability. A natural speech pause finalizes a segment
-  but no longer ends dictation; only the mic toggle, send, read-aloud, session
-  switch, or cancel stops it. The composer mic UX, permissions, draft merge, and
-  status-bar errors are unchanged.
-- **Read aloud speaks SSML.** Assistant replies are spoken as SSML utterances
-  (with XML escaping and paragraph cadence) and honor the system
-  assistive-technology voice and speaking-rate settings, falling back to plain
-  speech if SSML construction ever fails.
+- **Browser automation is more resilient and less chatty.** The `browser_use_*`
+  tooling gained an ergonomics layer driven by a real field report:
+  `browser_use_open` auto-recovers from a torn-down default tab via one bounded
+  retry on a fresh agent-owned tab (explicit `tab_id` / `use_selected` are never
+  re-routed); `browser_use_eval` is now snapshot-independent and is never failed
+  by the stale-snapshot gate, while ref-based verbs still fail honestly;
+  composite-widget descriptors carry value authority so a lagging input value no
+  longer produces a false-negative verification; repeated full element lists are
+  summarized and diffed (state changes are never elided, sensitive windows always
+  degrade to empty); high-entropy framework class hashes are dropped while
+  human-readable classes and documented hooks are preserved; and overlay
+  probe/dismiss nudges only fire when the needed control is plausibly covered.
+- **The iMessage channel surfaces SiriusMsg capabilities and recipe runtime.**
+  The channel hero now renders a capability matrix and recipe-runtime section, and
+  the embedded SiriusMsg dependency is updated to `0.0.1-alpha.11`.
+- **The distributable build defaults now target alpha.76/build 76.**
 
 ## Distribution
 
-- Published as monotonic Sparkle build 75.
-- Ships a refreshed signed core-runtime feed.
+- Published as monotonic Sparkle build 76.
+- Ships a refreshed signed core-runtime feed for the browser ergonomics changes.
 - Signed with Developer ID.
 - Notarized and stapled.
 - Sparkle public key, signed appcast, and signed core-runtime update feed are
