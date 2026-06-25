@@ -1,8 +1,8 @@
 {
-  "archiveSHA256": "f1c4ffe78b7f20d7d2ab5272a3ce3d00dacf5dd5bd44900fbd8d0136bed9712b",
-  "archiveURL": "https://updates.bestbyteai.com/sirius/runtime/core-runtime-0.1.0-alpha.80.zip",
+  "archiveSHA256": "b4c7c2b549650a8aa5971b75bd958c25cf7f3a2ee0474dc693c5031ce8912cc8",
+  "archiveURL": "https://updates.bestbyteai.com/sirius/runtime/core-runtime-0.1.0-alpha.81.zip",
   "componentID": "core-runtime",
-  "runtimeInputSHA256": "e19df934c805ec23a514f387439bd965d385a4297f453d1c09a7fb9e68dd29c1",
+  "runtimeInputSHA256": "01adef4aec50bc49452d3d323f352de9a6aee4770868ad44c68b40f7e72c9031",
   "schemaVersion": 1,
-  "version": "0.1.0-alpha.80"
+  "version": "0.1.0-alpha.81"
 }
