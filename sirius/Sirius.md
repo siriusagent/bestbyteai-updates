@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.85
+# Sirius v0.1.0-alpha.86
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,24 +9,25 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- **Tool-cycle recovery is now a recovery-only micro-context.** When the engine
-  detects a stuck tool loop, instead of forcing another full iteration over the
-  same context, it makes one isolated diagnostic call that sees only the cycle
-  facts and must return a typed recovery decision: answer the user, ask a
-  clarifying question, switch tools, or search for a new tool. The cycled tool
-  stays blocked through the recovery, and invalid or exhausted recovery ends the
-  turn with a clear message instead of looping.
-- **Clarifications no longer create a blank plan.** Asking a clarifying question
-  before a plan exists — including the new recovery "ask the user" path — no
-  longer mints an empty placeholder plan or a blank `plan.md` artifact. A plan is
-  written only once the model actually proposes one. The clarification card and
-  its answer flow are unchanged; plan-bound clarifications behave exactly as
-  before.
-- **The distributable build defaults now target alpha.85 / build 85.**
+- **Deferred reflection no longer runs on the service worker.** Sidebar
+  switch/new-chat handoff still writes the durable reflection queue on worker 0,
+  but the long provider-backed reflection drain now runs on a dedicated
+  reflection worker. This keeps worker 0 available for settings, channels,
+  callbacks, pinned context, and other service-plane work while memory catches
+  up in the background.
+- **Low-memory worker pools keep chat capacity first.** Two-worker boots do not
+  reserve worker 1 for reflection. Worker 1 remains the normal session worker
+  and the background reflection tick skips instead of moving the stall from the
+  service worker to the only chat worker.
+- **Runtime role routing and tests now cover the split.** Bootstrap, respawn
+  rebinds, iMessage durable turns, session selection, cron control, and
+  reflection queue tests all assert the service/reflection/session worker
+  contract.
+- **The distributable build defaults now target alpha.86 / build 86.**
 
 ## Distribution
 
-- Published as monotonic Sparkle build 85.
+- Published as monotonic Sparkle build 86.
 - Signed with Developer ID.
 - Notarized and stapled.
 - Sparkle public key, signed appcast, and signed core-runtime update feed are
