@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.89
+# Sirius v0.1.0-alpha.90
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,35 +9,29 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- **Direct OpenAI-compatible providers ship as first-class citizens.** DeepSeek,
-  Moonshot Kimi, Z.AI GLM, and xAI Grok are now recognized as direct
-  OpenAI-compatible providers rather than generic OpenAI-compatible endpoints.
-  The provider discovery, model roster, and API-key resolution paths handle
-  each one explicitly, with matching environment variables and default
-  settings, so the composer can resolve the right model and surface it without
-  manual OpenAI-compatible wiring.
-- **Composer provider selection is verified end-to-end.** The composer now
-  resolves the configured direct provider for xAI and carries the resolved
-  direct-provider entries through the payload used for model selection,
-  with tests covering both the selection and the payload shape so a provider
-  mapping regression is caught before it reaches a session.
-- **`session_search` counts as real progress in tool cycles.** The tool-cycle
-  progress signal now recognizes `session_search` results when they surface
-  unseen hits, using a per-turn `SessionSearchHitTracker` that tracks hit-set
-  novelty against flood thresholds. Genuine new hits break a cycle instead of
-  being miscounted as repetition; empty or already-seen results still do not.
-- **Background watches support keyed state-transition rules.** The watch rule
-  system gains a keyed form (`anchor`, `key_group`, `state_group`,
-  `target_state`) for polling monitors, so a row is judged on its own
-  transition into the target state instead of being tripped by stale or
-  re-printed rows that share a non-keyed condition. Non-keyed rules continue
-  to work unchanged; `bash_status` and `bash` guidance describes when to reach
-  for the keyed form.
-- **The distributable build defaults now target alpha.89 / build 89.**
+- **Direct provider brand icons ship as real logos.** The four direct
+  OpenAI-compatible providers introduced in alpha.89 — DeepSeek, Moonshot
+  Kimi, Z.AI GLM, and xAI Grok — now render branded marks in the Network &
+  Providers library, the provider detail-sheet header, and the composer
+  assistant avatar, replacing the generic SF Symbol placeholders
+  (`brain.head.profile`, `moon.stars.fill`, `z.square.fill`,
+  `x.square.fill`).
+  - **DeepSeek** and **Moonshot AI** come from the vendored
+    `simple-icons` submodule, bumped to upstream `16.24.1` so the
+    `deepseek` and `moonshotai` marks are on disk.
+  - **Z.AI** and **xAI (Grok)** are not carried by simple-icons upstream;
+    their 24×24 monochrome marks come from
+    [lobehub/lobe-icons](https://github.com/lobehub/lobe-icons) and
+    template-tint identically to the simple-icons glyphs.
+  - All four inline SVG strings through the existing template-render path
+    (`NSImage.isTemplate = true`), so they inherit the foreground color in
+    every surface. No asset catalog or SPM resource is introduced, so the
+    `Bundle.module` icon-crash class (BUG-209/211/230/241) cannot recur.
+- **The distributable build defaults now target alpha.90 / build 90.**
 
 ## Distribution
 
-- Published as monotonic Sparkle build 89.
+- Published as monotonic Sparkle build 90.
 - Signed with Developer ID.
 - Notarized and stapled.
 - Sparkle public key, signed appcast, and signed core-runtime update feed are
