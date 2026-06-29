@@ -1,7 +1,7 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.92
+# Sirius v0.1.0-alpha.93
 
 **Strict pre-release unstable build.** This alpha exists for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
@@ -9,35 +9,40 @@ compatibility promise, or support boundary.
 
 ## Changes
 
-- **The channel catalog is now exposed as a versioned snapshot for the Settings
-  UI.** `channel_catalog_snapshot()` exports a JSON-safe, versioned description
-  of the channel catalog so the SwiftUI Channels surface consumes static
-  provider/field metadata directly, without round-tripping sensitive values.
-  The Swift UI now builds provider configuration sheets from
-  `ChannelDescriptorSnapshot`, and catalog loading errors are surfaced in the
-  Channels settings view instead of failing silently.
-- **Channel field Keychain membership is documented and enforced consistently.**
-  `ChannelField` clarifies that a field's `kind` describes its editor shape
-  while persistence as a secret is decided by membership in `secret_fields`,
-  so provider config sheets no longer leak or mis-classify Keychain-backed
-  fields.
-- **Browser panel autofill, context menu, and page print are hardened.** The
-  Browser content view, coordinator, tab model, and JS bridge gained
-  autofill-source guarding, a richer context menu model, and a page-print
-  bridge, with the autofill source guard preventing synthetic form fills from
-  untrusted page sources.
-- **Direct-provider brand icons are unified across the shell and Settings.**
-  Provider logo shapes were refreshed so branded provider icons render
-  consistently in the channel/provider surfaces.
+- **Channel replies are now delivered through a durable outbox.** A new
+  `channel_outbox` table persists completed assistant turns for
+  provider-backed channels so transient transport failures are retried
+  automatically instead of dropping the reply. `ChannelBridge` and
+  `ChannelHost` integrate the outbox for automatic reply delivery, and
+  delivery outcomes are logged with richer error context for debugging.
+- **In-session commands `/model`, `/provider`, and `/retry` are available.**
+  Sessions can switch model or provider mid-conversation and regenerate the
+  last user request without restarting the turn.
+- **Capable channels now render live turn progress.** A `ChannelProgressRenderer`
+  drives typing indicators and evolving status cards while a message is being
+  processed. Telegram, Discord, Google Chat, and WhatsApp declare optional
+  support for `typing_indicator` and `edit_message`, with new env vars tuning
+  channel turn liveness and progress rendering.
+- **Native reply delivery is hardened with diagnostics.** `ChannelManager.send_auto`
+  retries transient transport failures when delivering native replies, and
+  `ChannelSentEvent` / `ChannelDeliveryFailedEvent` now carry
+  `native_attempted`, `native_surface`, `native_attempt_count`, and
+  `fallback_reason`, persisted into the `channel_outbox` schema for delivery
+  tracking.
+- **New session and repository management commands.** `sirius init [PATH]`
+  bootstraps or backfills a repository, and `sirius session` gains
+  `export SESSION_ID` (Markdown or JSON), `rename SESSION_ID TITLE`, and
+  `remove SESSION_ID`. The in-session `/export` command exports the current
+  transcript.
 - **The bundled Python core runtime refreshes with this build.** The signed
-  core-runtime feed ships the latest `sirius_agent` package, including channel
-  catalog snapshot support and provider/runtime-rebind fixes from the prior
-  alpha.91 cycle.
-- **The distributable build defaults now target alpha.92 / build 92.**
+  core-runtime feed ships the latest `sirius_agent` package, including the
+  durable outbox, progress rendering, and native delivery diagnostics from
+  this cycle.
+- **The distributable build defaults now target alpha.93 / build 93.**
 
 ## Distribution
 
-- Published as monotonic Sparkle build 92.
+- Published as monotonic Sparkle build 93.
 - Signed with Developer ID.
 - Notarized and stapled.
 - Sparkle public key, signed appcast, and signed core-runtime update feed are
