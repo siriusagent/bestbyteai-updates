@@ -1,61 +1,64 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.0-alpha.121
+# Sirius v0.1.0-alpha.122
 
 **Strict pre-release unstable build.** This alpha is for early installation,
 packaging, and Sparkle update testing. It is not an RC, production release,
 compatibility promise, or support boundary.
 
-This hotfix rollup keeps browser input on the browser, repairs Decision Request
-submission and multiline input, adds native reasoning controls for supported
-Ollama models, and makes an installed core-runtime update actionable without a
-manual quit and relaunch.
+This release makes long-running Goals easier to trust at a glance, adds local
+Tool Activity diagnostics, keeps DiffTree Markdown readable while you resize,
+and hardens macOS Automation so Mail and other apps are less likely to freeze
+or leave half-finished work behind.
 
-## Ollama reasoning controls
+## Goal status and usage
 
-- **Supported local and cloud tags expose their native choices.** Sirius checks
-  each exact model's live `/api/show` capability metadata. Most thinking models
-  offer Off/On; GPT-OSS offers its required Low/Medium/High levels.
-- **The choice reaches Ollama's native chat API.** The saved selection is sent
-  as top-level `think`, with real JSON booleans for Off/On and level strings for
-  GPT-OSS. Models without live thinking metadata remain usable without a
-  speculative selector.
+- **Goal usage now reflects new work, not prompt replay.** Sirius counts
+  uncached input plus output for the active Goal, so long runs no longer look
+  inflated just because the same context was reread from cache.
+- **The Goal control shows what matters while work is in flight.** State,
+  elapsed time, Goal usage toward your checkpoint, and current context fill are
+  visible together, with one clear lifecycle action for the current state.
+- **Usage updates while tools are running.** The meter advances during a Goal
+  turn instead of waiting for the turn to finish.
 
-## Browser action ownership and targeting
+## Tool Activity diagnostics
 
-- **Trusted browser paste stays in WebKit.** A browser-owned paste operation no
-  longer falls through to the Sirius composer when the web view owns focus.
-- **Modal and coordinate verification is more exact.** Controls inside an
-  existing modal can verify from durable action evidence, while a newly
-  appearing error modal still fails closed. Context-menu and native AutoFill
-  placement now account for flipped WebKit coordinates and page zoom.
-- **AutoFill remains native.** Sirius forwards current field focus and viewport
-  geometry to the browser coordinator, then invokes the macOS/WebKit AutoFill
-  surface rather than storing or synthesizing credentials.
+- **See which tools Sirius has ready.** The Activity sub-tab under MCP, Tools &
+  Skills shows which tools were ready, available on request, hidden, or no
+  longer available in each session—and explains why in plain language.
+- **Find reliability problems without inspecting logs.** A sortable local table
+  shows lifetime or exact-workspace calls, tool errors and rate, average time,
+  recorded results, last use, and on-demand activation totals. Removed and
+  currently unavailable tools remain visible when they have history.
+- **Diagnostics stay metadata-only and local.** Sirius stores and displays tool
+  names, scopes, counters, timestamps, duration, tiers, and reasons—not tool
+  arguments, outputs, prompts, commands, URLs, raw errors, screenshots,
+  credentials, or transcript content.
 
-## Decision Request input
+## DiffTree Markdown preview
 
-- **Submit is live from the card's first render.** Decision Request rows no
-  longer retain a missing callback when the request arrives before the turn's
-  terminal event.
-- **The text field has predictable keyboard behavior.** Return submits;
-  Shift-Return and Option-Return insert a newline. Long answers wrap and grow
-  through five visible lines before scrolling.
+- **Markdown previews keep their spacing when the panel resizes.** Preview
+  layout waits for the real content width, then relayouts cleanly instead of
+  stacking overlapping lines after a window or display change.
 
-## Core runtime relaunch
+## macOS Automation reliability
 
-- **Components now includes a Relaunch action for the installed core runtime.**
-  Sirius schedules the exact running app bundle to reopen after the current
-  process exits, then follows the normal termination path so live sessions and
-  the SwiftPython worker pool drain before updated runtime workers start.
-- **Damaged or missing runtimes still fail closed.** Relaunch is unavailable
-  until Install or Repair produces a usable core runtime.
+- **Mail body search no longer freezes Mail.** Sirius no longer asks Mail to
+  scan message bodies in ways that can hang on uncached IMAP content.
+- **Automation fails closed on slow or partial work.** Contacts, Messages,
+  Notes, Reminders, Calendar, and related helpers bound heavy queries, discard
+  failed compose attempts, and report unavoidable partial sends instead of
+  pretending a write finished.
+- **Custom scripts stay reviewable.** Raw automation scripts show a redacted
+  approval preview, validate size and arguments, and bind remote passkey
+  approval to the exact script being authorized.
 
 ## Notes
 
-- **Sparkle build version** is `121` (`CFBundleVersion`), the primary
-  comparison key for auto-update. Apps on build `120` or earlier will offer
+- **Sparkle build version** is `122` (`CFBundleVersion`), the primary
+  comparison key for auto-update. Apps on build `121` or earlier will offer
   this release.
-- The signed core-runtime feed is refreshed as `0.1.0-alpha.121` so the app,
+- The signed core-runtime feed is refreshed as `0.1.0-alpha.122` so the app,
   appcast, and Python runtime component remain release-synchronized.
