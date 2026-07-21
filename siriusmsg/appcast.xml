@@ -5,16 +5,16 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         <title>SiriusMsg</title>
         <item>
             <title>0.0.1</title>
-            <pubDate>Sun, 19 Jul 2026 14:42:30 -0400</pubDate>
-            <sparkle:version>9</sparkle:version>
+            <pubDate>Tue, 21 Jul 2026 02:38:45 -0400</pubDate>
+            <sparkle:version>10</sparkle:version>
             <sparkle:shortVersionString>0.0.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <sparkle:releaseNotesLink sparkle:edSignature="BApdrlBdBnLtz6Svgyouk1C8GI4ew/W2EPXIoO90FvUxQmY8GQ95RAz3quga8bx7XmUfmixB5hLuArozOvedBA==" sparkle:length="2985">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.0.1-build.9/SiriusMsg-notarized.dmg" length="28942914" type="application/octet-stream" sparkle:edSignature="lt+GOb7lJO0bZdQ2EUbxbj6JEOe/vAPDP8/b7ugxosdp0A2Hpz7IPUe3+odOdZyGfJM7gnGmgZrnVU80aKZgBQ=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="4VNOSWMvhZQH6pjTSpqz+tsd5+Xowd491+wI+5TYiNm4j/kakMmhabJBzAELFyKL0LdWqvnlGBGaY3rSkCarBA==" sparkle:length="2937">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.0.1-build.10/SiriusMsg-notarized.dmg" length="27933415" type="application/octet-stream" sparkle:edSignature="jKRc2arMURJbmEcDZW/HzOahswvNCypirSvi3IRXCFs5IDZ9TfldBzPrZc9Z0XgUMBC5alRX34URxcbS2ZjkAg=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: 9xeMp4jP7W/MFPY6qOeRLCUw17v23S7GkNO3Br7jBFRfFf2HY/nTeqMpUOItrBIFZCv2uicTcADH7sPA8KPeBA==
-length: 1401
+edSignature: cDIUfhUdzLiNIMCOmCkKSsMUGYhu/sC4PK/KK2alRIR60meQU5nxEHuXZhM0i+2DRJi683z4h/J+91lr7fEMAA==
+length: 1403
 -->
