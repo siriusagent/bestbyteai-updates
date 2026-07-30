@@ -1,78 +1,69 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.1-alpha.007
+# Sirius v0.1.1-alpha.008
 
 **Alpha channel release.** Sirius's core product surfaces and signed update
 path are stable enough for regular use. The alpha label remains a pre-1.0
 release channel — updates may still refine behavior and compatibility — but
 this is a user release, not an installation or packaging test.
 
-This release continues the Computer Use hardening train after
-v0.1.1-alpha.006: replay-safety identity gaps, tool-family prompt parsing,
-SkyLight delivery correctness, and momentary-focus typing truncation — plus
-CLI-agent Settings fixes and a no-progress replan change that keeps surface
-pivots available.
+This release makes long-running agent work more resilient across context
+compression and improves three practical automation paths: focusing native
+editable controls, uploading local files through the Sirius browser, and
+running shell commands that would otherwise disappear into a pager. It also
+repairs another precise OpenAI-compatible sampling-error dialect.
 
-## Fixed
+## Session continuity
 
-- **Coordinate replay identity no longer fails open on int vs float literals
-  (BUG-376).** An unconfirmed `click_point(x=800, y=600)` now blocks a replay
-  of `click_point(x=800.0, y=600.0)` (and the same for `drag`). Numeric
-  identity is canonicalized per value rather than per literal spelling.
+- **Automatic compression now recalls the active session before work
+  continues.** When a turn compresses its live context, Sirius temporarily
+  exposes only `session_search` and forces an exact read of the current
+  session's recent transcript. Normal tools and system context return only
+  after that read succeeds. A different session or page, an empty result, a
+  text-only answer, or another tool keeps the gate closed, preventing the
+  model from resuming with a plausible but stale reconstruction.
 
-- **One unconfirmed scroll no longer blocks every later scroll in that window
-  (BUG-377).** Scroll identity now carries `direction` and `amount`, so a
-  different gesture (including scrolling back the other way) is allowed while
-  an identical pair still fails closed. This is the common canvas/PDF/map
-  case where scroll stays honestly `unconfirmed`.
+## Computer Use and Browser
 
-- **A prohibition no longer swallows the tool the user asked for next
-  (BUG-378).** "Do not use the browser, instead use `computer_use_scroll`"
-  kept denying the prescribed tool because negation capture ran to the
-  sentence terminator. Clauses now stop at `;` / `—` and at contrastive
-  markers (`instead`, `then`, `but`, …); comma-separated deny lists still
-  span commas.
+- **Editable controls without a button-style primary action now focus
+  semantically (BUG-382).** Native text fields and text areas that do not
+  advertise `AXPress` use one `AXFocused = true` mutation and verify the exact
+  element became focused. A failed focus reports directly instead of falling
+  through to a coordinate click, while ordinary buttons and non-editable
+  primary-less targets retain their established transports.
 
-- **An exclusivity clause no longer matches a family named inside a
-  condition or a negation (BUG-379).** "Use the browser only when computer
-  use tools fail" no longer resolves to exclusive `computer_use` and removes
-  the browser family. Conditional and negated phrasings are skipped; a
-  genuine "use only … tools" restriction still applies.
+- **`browser_use_upload` can attach existing local files without opening
+  Finder (BUG-383).** An agent can pass one absolute `path` or a `paths` array
+  to a file input. Sirius validates up to 16 readable regular files and
+  512 MiB combined, scopes the prepared selection to the exact tab and
+  navigation, and completes WebKit's native chooser callback without exposing
+  local paths to page JavaScript. Agent-driven clicks on file inputs fail
+  closed with guidance to use the upload tool; manual clicks still open the
+  native picker.
 
-- **Momentary focus recovery no longer truncates typing at 32 characters
-  (BUG-380).** Agent-caused window activation was mistaken for a user
-  takeover, so longer `computer_use_type` calls aborted after the first
-  chunk with `blocked: user_interruption`. The takeover baseline now rebases
-  onto the target when the runner itself activated it.
+## Terminal and providers
 
-- **SkyLight delivery no longer posts every event twice (BUG-381).** The
-  additive tier was posting through both `SLEventPostToPid` and
-  `CGEvent.postToPid`, so AppKit targets that accept both channels duplicated
-  typed text and turned coordinate clicks into synthetic double-clicks. Each
-  site now uses exactly one channel (SkyLight when available, else public
-  `postToPid`).
+- **Agent-issued shell commands no longer stall inside automatic pagers.**
+  Sirius applies finite-output pager defaults to Git, `gh`, `man`, `psql`,
+  `bat`, Delta, systemd clients, AWS CLI, and generic pager consumers across
+  local, host-bridged, sandbox, credentialed, fallback, and detached
+  execution. The policy is command-scoped: persistent CWD and unrelated
+  exports survive, direct Terminal-panel input is unchanged, and an explicit
+  command-local pager override still wins.
 
-- **Codex CLI updates no longer leave Settings showing "Install failed"
-  (BUG-374).** Detection prefers the platform-native executable over a stale
-  user-local PATH shim after a successful install/update.
-
-- **Enabling the first CLI subagent in a live session no longer hot-loads
-  into an abandoned registry (BUG-375).** An empty caller-supplied
-  `AgentRegistry` is preserved, so Settings enablement is visible to
-  `subagent_dispatch` without starting a new session.
-
-- **No-progress replan no longer hides the whole Computer Use family.** Only
-  composed in-window primitive verbs are withdrawn on a stall, so the model
-  can still pivot to another surface (launch/activate/observe desktop, …)
-  instead of being stranded mid-task.
+- **OpenAI-compatible sampling repair now understands explicit required-value
+  errors (BUG-384).** A response such as
+  `requires frequency_penalty=0` removes only that named request field and
+  retries before the first streamed chunk, using the same model-local learned
+  capability path as the existing “only 0 is supported” dialect. The fix is
+  generic and does not depend on a provider or model-name exception.
 
 ## Notes
 
-- **Sparkle build version** is `132` (`CFBundleVersion`), the primary
-  comparison key for auto-update. Apps on build `131` or earlier will offer
+- **Sparkle build version** is `133` (`CFBundleVersion`), the primary
+  comparison key for auto-update. Apps on build `132` or earlier will offer
   this release.
-- This release changes both the Swift host (Computer Use delivery, focus
-  recovery, CLI Agents Settings) and Python engine code (replay identity,
-  tool-family parsing, replan hiding). The signed core-runtime feed is
-  refreshed as `0.1.1-alpha.007`.
+- This release changes both the Swift host and the Python engine. The signed
+  core-runtime feed is refreshed as `0.1.1-alpha.008` so the app, appcast, and
+  Python runtime component remain release-synchronized.
