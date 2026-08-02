@@ -5,16 +5,16 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         <title>SiriusMsg</title>
         <item>
             <title>0.0.1</title>
-            <pubDate>Tue, 21 Jul 2026 02:38:45 -0400</pubDate>
-            <sparkle:version>10</sparkle:version>
+            <pubDate>Sun, 02 Aug 2026 16:36:05 -0400</pubDate>
+            <sparkle:version>11</sparkle:version>
             <sparkle:shortVersionString>0.0.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <sparkle:releaseNotesLink sparkle:edSignature="4VNOSWMvhZQH6pjTSpqz+tsd5+Xowd491+wI+5TYiNm4j/kakMmhabJBzAELFyKL0LdWqvnlGBGaY3rSkCarBA==" sparkle:length="2937">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.0.1-build.10/SiriusMsg-notarized.dmg" length="27933415" type="application/octet-stream" sparkle:edSignature="jKRc2arMURJbmEcDZW/HzOahswvNCypirSvi3IRXCFs5IDZ9TfldBzPrZc9Z0XgUMBC5alRX34URxcbS2ZjkAg=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="ErIDEjieb37bnJ7UkdnJojJS4n12NMfJRIxVViMBuMNqpFOTAv+y4smZR11N9G6SlbIxVnfXJrZjVq1/tv+GAw==" sparkle:length="1093">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.0.1-build.11/SiriusMsg-notarized.dmg" length="32860827" type="application/octet-stream" sparkle:edSignature="KhMP/+jKCbSOd+Anw+qzPYiEMBB7tBSc20gT8w9NqLGcRwf14M0DmI29Z8pWm9tzFuZTUDgyp+W2J5MnmiJmCA=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: cDIUfhUdzLiNIMCOmCkKSsMUGYhu/sC4PK/KK2alRIR60meQU5nxEHuXZhM0i+2DRJi683z4h/J+91lr7fEMAA==
+edSignature: g+t0QCR3Fw9taSoNb591Z/LnPW789ZFNnimdC1RuSdXUIBKde7ZMqkcjOFhmr2LnsEm2yVqOuBbtDatjyXf3AQ==
 length: 1403
 -->
