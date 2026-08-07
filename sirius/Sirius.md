@@ -1,52 +1,32 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.1-alpha.014
+# Sirius v0.1.1-alpha.015
 
-This alpha completes Sirius's full-duplex active-turn control path — queued
-guidance, interrupt-and-steer, Stop, and Goal controls with exact
-request/turn correlation — and replaces opaque tool suppression with a
-recoverable, honestly-reported error backoff policy.
+This is a focused reliability hotfix for long-running model turns. A healthy
+worker may now remain silent for more than 60 seconds while a model or
+accelerator is still working without Sirius falsely terminating the turn.
 
-Updating from `0.1.1-alpha.012` also picks up everything prepared for
-`0.1.1-alpha.013`, which never reached the update feed.
+## Fixed
 
-## Highlights
+- **Removed the false 60-second duplex failure.** The matched SwiftPython
+  control reader now treats an empty receive interval as a liveness poll rather
+  than `runtimeUnavailable`.
+- **Preserved real failure truth.** Worker death, channel closure, protocol
+  failure, and explicit session deadlines still terminate with their typed
+  failure; the fix does not add synthetic progress or weaken timeout policy.
+- **Kept active-turn controls intact.** Steer, Interrupt & Steer, Stop, and Goal
+  controls continue to use the exact durable receipt and no-replay contract
+  introduced in the previous alpha.
 
-- **Granular active-turn guidance.** Steer waits for the next safe point, while
-  Interrupt & Steer deliberately truncates generation first. A single global
-  coordinator keeps every receipt, interruption, and application paired with
-  the exact queued request.
-- **No duplicate or blind control delivery.** Sirius uses the published
-  `swiftpython-commercial` `0.6.0-duplex.5` receipt contract and never
-  resubmits a possibly owned control. Owned, rejected, pending, and
-  delivery-uncertain outcomes remain distinct.
-- **Typed Goal control.** Pause and Clear travel through the active duplex turn
-  when one exists; idle Goal mutations run as short duplex turns and terminate
-  with explicit product success instead of a false UI failure.
-- **Stronger terminal and recovery truth.** `Done` is the sole normal product
-  fence. Error, lifecycle, transport, interruption, and durable ledger evidence
-  are reconciled separately, and worker replacement finalizes the exact failed
-  turn without replaying an explicit Stop or mutation-boundary failure.
-- **Tool errors no longer silently strand a turn.** After two consecutive
-  errors a tool is suppressed from the model surface — but the suppression is
-  now reported as exactly that, with the error count, threshold, and current
-  recoverability, instead of looking like a missing or deregistered tool.
-- **Bounded, explicit tool recovery.** The model receives the exact recovery
-  action for every newly-suppressed tool and may restore it once per unresolved
-  failure episode. A successful call proves progress and starts a fresh episode;
-  exhausted names are told to choose another tool or report the blocker.
-  Accepting new user guidance renews eligibility without erasing failure
-  evidence.
-- **Consistent policy across every dispatch path.** Builtin, MCP,
-  host-delegated, pinned, and loop-owned tools follow one rule, and
-  `execute_dag` children are gated and accounted for identically — a dependent
-  step can no longer bypass backoff or act on a stale pre-failure snapshot.
-  Pinning a tool ("Always include") is a ranking guarantee, never a safety
-  bypass.
+## Runtime
+
+- Exact `swiftpython-commercial` `0.6.0-duplex.6` Runtime, private Engine, and
+  matched worker.
+- Worker wire v6 and duplex media v1 are unchanged.
 
 ## Distribution
 
 - macOS 26 (Tahoe) or later.
 - Developer ID signed and Apple notarized.
-- Sparkle build 139 with the matching signed core-runtime feed.
+- Sparkle build 140 with the matching signed core-runtime feed.
