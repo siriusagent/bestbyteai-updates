@@ -1,32 +1,39 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.1-alpha.015
+# Sirius v0.1.1-alpha.016
 
-This is a focused reliability hotfix for long-running model turns. A healthy
-worker may now remain silent for more than 60 seconds while a model or
-accelerator is still working without Sirius falsely terminating the turn.
+This alpha improves Browser reliability and evidence fidelity, and closes
+several control-path failures found while exercising real browser workflows.
+
+## Changed
+
+- **Native content blocking is on by default.** Sirius ships a pinned,
+  provenance-recorded EasyList conversion and installs it before the first
+  WebKit navigation. Compilation is content-addressed, failures remain
+  fail-open, and Browser settings include a single global off switch.
+- **Browser evidence is more complete and truthful.** Page-text length and
+  truncation are explicit, safe older browser controls remain available to the
+  model wire format, and compact control paging reports listed, delivered, and
+  omitted counts rather than silently hiding the tail of a page.
+- **Browser history selection is explicit.** Typing in the address bar no
+  longer silently selects the first suggestion; Return uses the typed value
+  until a history row is deliberately selected.
 
 ## Fixed
 
-- **Removed the false 60-second duplex failure.** The matched SwiftPython
-  control reader now treats an empty receive interval as a liveness poll rather
-  than `runtimeUnavailable`.
-- **Preserved real failure truth.** Worker death, channel closure, protocol
-  failure, and explicit session deadlines still terminate with their typed
-  failure; the fix does not add synthetic progress or weaken timeout policy.
-- **Kept active-turn controls intact.** Steer, Interrupt & Steer, Stop, and Goal
-  controls continue to use the exact durable receipt and no-replay contract
-  introduced in the previous alpha.
-
-## Runtime
-
-- Exact `swiftpython-commercial` `0.6.0-duplex.6` Runtime, private Engine, and
-  matched worker.
-- Worker wire v6 and duplex media v1 are unchanged.
+- **Goal Pause is a real durable action.** A model-owned pause records its
+  reason and exact resume checkpoint, stops continuation, and cannot be
+  confused with a read-only Goal view.
+- **Idle recovery uses the complete typed duplex contract.** `/recover`, Goal
+  controls, and their production adapter now agree on method names and turn-ID
+  positions, including the narrow session-publication race.
+- **Transient peer disconnects during reasoning retry safely.** A disconnect
+  can retry after reasoning-only stream fragments, while any assistant text or
+  tool-call fragment still prevents replay.
 
 ## Distribution
 
 - macOS 26 (Tahoe) or later.
 - Developer ID signed and Apple notarized.
-- Sparkle build 140 with the matching signed core-runtime feed.
+- Sparkle build 141 with the matching signed core-runtime feed.
