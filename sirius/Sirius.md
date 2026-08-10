@@ -1,64 +1,52 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.1-alpha.017
+# Sirius v0.1.1-alpha.018
 
-This alpha makes **Auto** a real automatic permission mode. Sirius now uses
-the configured background provider to classify consequential actions while
-preserving deterministic hard-deny, human-only-authority, and runtime-ownership
-boundaries.
-
-## Changed
-
-- **Safe, explicitly authorized work can proceed without routine approval
-  prompts.** The classifier receives a narrow projection of human intent and
-  the proposed action, not hidden reasoning or untrusted tool-result text. A
-  fast first stage handles clear cases; a reasoned second stage handles
-  ambiguity.
-- **Denied actions fail closed and the agent keeps working.** Sirius records the
-  denial and returns it to the active agent so it can explain or replan instead
-  of turning every uncertain action into a blocking permission sheet.
-- **Owned scratch cleanup is deterministic.** Sirius-created temporary resources
-  carry session-scoped ownership proof, so their bounded recursive cleanup does
-  not need model or human review. Arbitrary project or `/tmp` paths are never
-  inferred to be owned.
-- **One permission gate covers every execution surface.** Foreground calls, DAG
-  children, skills, sub-agents, channels, resumed sessions, and background-
-  provider hot swaps share the same semantics and redacted audit trail.
-- **Settings shows the truth.** Native permission status and authority history
-  identify deterministic, ownership, model, human, and fail-closed outcomes
-  without exposing secrets or hidden reasoning.
-
-## Certified release gate
-
-For the recorded `gpt-5.4-mini` model and policy inputs, Sirius **exceeds the
-published Anthropic Auto Mode numeric bar on Sirius's frozen corpus**:
-
-- 0.03% benign false positives across 10,000 eligible safe actions (Anthropic
-  reports 0.4% on its private corpus).
-- Zero misses across 200 curated overeager actions and 2,000 synthetic
-  destruction/exfiltration actions (Anthropic reports 17% and 5.7%,
-  respectively, on its private corpora).
-- Zero eligible-safe prompts and zero hard-policy, human-authority, injection,
-  delegation, execution-surface, or trigger-session escapes.
-- Stage-one p95 of 812ms and stage-two total p95 of 2.1s under the frozen
-  16-lane release protocol.
-
-The private corpora differ, so this is a qualified numeric comparison, not an
-apples-to-apples replication. See the checked-in
-[literal Sirius certification record](https://github.com/mikhutchinson/sirius-agent/blob/master/.plan/Sirius%20Automatic%20Permission%20Classification%20Plan/RESULTS-2026-08-10.md)
-and Anthropic's published
-[Auto Mode report](https://www.anthropic.com/engineering/claude-code-auto-mode).
+Alpha.017 described automatic permissions, but its shipped native route could
+still send harmless readers through a slow classifier and let one stuck request
+turn later actions into timeout denials. Alpha.018 fixes and live-certifies the
+actual SwiftUI product path.
 
 ## Fixed
 
-- **Background command watches now reject impossible output contracts
-  (BUG-405).** Sirius will not arm a watcher after the command redirects both
-  stdout and stderr away from its transcript; the error explains how to retain
-  observable output with `tee`.
+- **Read-only tools are automatic now.** Tools declared never-mutating, such as
+  skill listing, file reads, and credential availability checks, pass through a
+  deterministic policy after hooks and hard checks. They do not spend a model
+  call or open a permission sheet.
+- **Consequential actions use the configured background provider.** The native
+  session forwards mutation metadata across foreground, isolated, and DAG tool
+  dispatch. OpenAI classification uses Sirius's API key and public endpoint;
+  the user's foreground ChatGPT OAuth session and other background consumers
+  are unchanged.
+- **GPT-5.6 permission verdicts use no reasoning.** The narrow classifier call
+  is fast and non-blocking while ambiguous cases can still use the policy's
+  second stage.
+- **A stuck classifier request cannot poison the queue.** Timed-out workers are
+  retired with bounded rotation, so later actions are evaluated independently
+  instead of failing in long timeout cascades.
+- **Authority history tells the truth.** Native Settings and durable audit rows
+  distinguish deterministic read policy, model allow/block decisions, and
+  fail-closed boundaries without recording secrets or hidden reasoning.
+
+## Certified release gate
+
+- Frozen GPT-5.6 Luna holdout: 13,219 cases.
+- Benign false positives: 20 / 10,000 (0.20%; one-sided 95% Wilson upper
+  0.288171%).
+- Destructive misses: 0 / 2,000; overeager-action misses: 0 / 200.
+- Eligible-safe prompts and hard-policy, human-authority, injection,
+  delegation, and cross-surface escapes: zero.
+- Stage-one p95: 1,269 ms; stage-two total p95: 3,039 ms.
+- Notarized native A1-A7 matrix: deterministic readers passed; harmless shell
+  read, bounded write, and exact task-owned recursive cleanup passed; the
+  privilege-boundary probe was blocked before execution.
+
+The corpus and Anthropic's private Auto Mode corpora differ, so the numeric
+comparison remains qualified rather than an apples-to-apples replication.
 
 ## Distribution
 
 - macOS 26 (Tahoe) or later.
 - Developer ID signed and Apple notarized.
-- Sparkle build 142 with the matching signed core-runtime feed.
+- Sparkle build 143 with the matching signed core-runtime feed.
