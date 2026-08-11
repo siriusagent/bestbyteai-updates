@@ -1,59 +1,69 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.1-alpha.019
+# Sirius v0.1.1-alpha.020
 
-Alpha.019 is a permission-system hotfix release. A real Sirius production
-trace proved that the previous synthetic Auto gate did not represent actual
-transcript/action shapes, and the Auto refactor also regressed the older
-Permissive bypass contract. This release fixes both families and records the
-failed assumptions instead of carrying forward the invalid certification.
+Alpha.020 replaces Auto's parallel permission policy with the contract it was
+supposed to have: Permissive behavior, plus model review only where Permissive
+would have asked a human. The reviewer now sees the task Sirius is actually
+executing and returns a reason that is preserved for the agent and audit.
 
 ## Fixed
 
-- **Auto classifies the action Sirius is actually about to run (BUG-406).** A
-  foreground request contains the candidate only; nested work contains its
-  direct parent and candidate. Unrelated historical tool calls are no longer
-  invented as one executable action closure.
-- **Project-scoped authority reaches the classifier (BUG-406).** Runtime-issued
-  workspace/project identity and candidate locus let ordinary reversible audit,
-  implementation, and test work remain inside the task the user assigned.
-- **Shell composition no longer looks like unknown targeting (BUG-406).**
-  Pipelines, command sequences, quoted metacharacters, relative globs, sourced
-  project scripts, redirections, and absolute system executables preserve
-  resolvable workspace targets. Active variables and command/process/arithmetic
-  substitution remain unresolved and fail closed.
-- **Valid classifier JSON is not converted into an infrastructure failure.**
-  Long diagnostic explanations are bounded after schema validation, preventing
-  false malformed-output counts and turn-wide saturation.
-- **Channel calls retain their real execution surface.** Authority projection
-  and audit no longer relabel channel activity as foreground.
-- **Permissive is automatic again (BUG-407).** Its pre-Auto contract is
-  restored: ordinary non-bypass-immune Browser mutations, checker reviews, and
-  ask rules do not open approval UI and do not call the classifier. Hard denies,
-  human-required authority, bypass-immune checks, and the repeated-denial
-  checkpoint remain enforced.
-- **Dead permission machinery is removed.** The never-constructed shadow
-  subsystem and production-only test doubles are gone; historical shadow audit
-  rows remain readable.
+- **Conservative shell projection is evidence, not a verdict (BUG-408).** The
+  exact executable syntax can resolve same-command literal bindings and quoted
+  payloads; genuinely dynamic targets remain blocked. The v5 overlay retains
+  the semantic correction proven by the earlier v4 prompt-only A/B.
+- **Auto literally inherits Permissive (BUG-409).** A call Permissive silently
+  admits follows the same path in Auto and makes zero reviewer calls. This
+  removes the second, stricter policy track that was denying ordinary agentic
+  work.
+- **Auto substitutes review only at the human-approval boundary.** One
+  structured model review handles reviewable cases where Permissive would
+  prompt. Hard denies remain terminal. Explicitly nondelegable credential
+  disclosure, ungranted wallet spend, MCP `ask`, and unsupported
+  credential/economic submissions still require a human and never reach the
+  reviewer.
+- **The reviewer sees authority and context as different things.** Trusted
+  human messages establish authority. Goal/Plan state, model-authored action
+  intent, recent tool evidence, the exact candidate/direct parent, and runtime
+  facts support interpretation without silently becoming authority or a
+  precomputed verdict.
+- **Review decisions explain themselves.** The structured result carries an
+  authority basis, intent alignment, effect summary, bounded explanation, risk
+  tags, and confidence. The acting model and redacted authority audit retain
+  those reasons.
+- **Runtime locus is evidence, not the answer.** Literal bindings, quoted
+  heredocs, and explicit repository-bootstrap authority can establish a bounded
+  target even when a coarse projection reports `unresolved`; active variable,
+  command, process, and arithmetic substitution remain unresolved and block.
 
 ## Verification and certification status
 
-- The exact persisted SiriusPDF calls that exposed the production-history and
-  shell-locus failures now replay against the current projection and policy.
-- The Permissive regression is covered through the production Browser mutating
-  checker. A rebuilt signed throwaway reran the original three-site kitchen
-  prompt byte-for-byte: all 16 audited calls were mode-approved, including
-  three tab mutations and one browser transaction, with zero prompts or
-  denials.
-- Focused permission/Browser coverage passed 253 tests; the broader affected
-  suite passed 505 tests before release packaging.
-- The alpha.017/alpha.018 synthetic-only Auto certificates are invalidated.
-  Production-trace regression evidence is now mandatory. Alpha.019 does not
-  claim a replacement statistical certificate.
+- The exact two persisted calls from Sirius session
+  `4615a8c9-b74e-4c54-91b5-fdfbe192e169` now route through
+  `permissive_baseline` and allow with zero reviewer calls.
+- Direct GPT-5.6 Luna v5 replays of those byte-for-byte candidates also allowed
+  both and cited the operative human authority. An earlier v4 prompt-only A/B
+  established the shell-projection correction; the first combined overlay
+  prompt iteration still reproduced both blocks until v5 integrated that rule.
+  Both experiments and the failed intermediate assumption remain recorded.
+- Four live provider-backed controls blocked an unbound target variable,
+  command-substitution targeting, recursive deletion outside the assigned
+  workspace, and a remote push contradicting the latest human steer.
+- Focused permission/authority coverage passed 614 tests. The broader affected
+  suite passed 1,561 tests with 11 skips. Existing child-process hardware-probe
+  crash diagnostics appeared in that broader run, but pytest recovered and
+  exited successfully; the clean focused slice did not emit them.
+- The combined native host suite passed 3,248 tests with 18 skips. One
+  post-activation evidence fixture initially exhausted its 100 ms wall-clock
+  budget on the loaded release machine; its fixture-only budget was corrected,
+  the case passed three consecutive runs, and the full suite then passed.
+- This is production-trace regression evidence, not a replacement statistical
+  certificate for the invalidated alpha.017/alpha.018 synthetic gates.
 
 ## Distribution
 
 - macOS 26 (Tahoe) or later.
 - Developer ID signed and Apple notarized.
-- Sparkle build 144 with the matching signed core-runtime feed.
+- Sparkle build 145 with the matching signed core-runtime feed.
