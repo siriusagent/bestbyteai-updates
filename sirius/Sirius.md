@@ -1,56 +1,80 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.1-alpha.021
+# Sirius v0.1.1-alpha.022
 
-Alpha.021 makes the native Terminal feel like one continuous Sirius workspace:
-each live task retains its own renderer, streamed bytes and command state remain
-correct under sustained output, and the terminal follows the app's appearance
-without spending a second row on duplicated status. It also tightens Auto's
-model-facing denial boundary and fixes Gemini schema compatibility.
+Alpha.022 gives long-running work two native control surfaces: a durable
+background-task manager in the status bar and a compact Goal control panel with
+truthful generated-output budgets. It also stabilizes provider prompt-cache
+reuse and contains a native crash path in parallel web-page extraction.
 
-## Changed
+## Background tasks
 
-- **Terminal chrome is compact and native (BUG-413).** The selected tab uses a
-  tonal shape, Host/Sandbox creation shares one menu, and cwd remains available
-  from the tab tooltip, context menu, and VoiceOver label without a permanent
-  cwd/“ready” strip.
-- **Terminal appearance follows Sirius by default.** Fresh and reset settings
-  use Match App with typed opaque light/dark palettes. Explicit Sirius and
-  Always Dark choices are preserved.
+- **Background work is visible and controllable from one native manager.** The
+  status-bar popover separates active, attention, and recent tasks; advances
+  elapsed time without inventing state; opens the exact retained Terminal when
+  available; and otherwise shows bounded redacted output.
+- **Actions report what actually happened.** Stop sends one graceful interrupt
+  and never auto-escalates. Force Quit is distinct and confirmed. Remove Stale
+  is available only when the runtime proves no live target remains. Durable,
+  idempotent receipts keep signal acceptance, verified death, task
+  reconciliation, agent wake, and acknowledgement separate.
+- **SQLite is the sole background-task authority (BUG-431).** Legacy JSON is
+  imported once and retained only as a diagnostic backup. Concurrent workers,
+  origin ownership, coherent snapshots, watches, receipts, and events no
+  longer depend on last-writer JSON state.
+- **Terminal ownership survives the hard cases.** Actions route by exact
+  session/generation before colliding local SIDs (BUG-432), cancelling capture
+  is no longer treated as verified process death (BUG-433), and closing a
+  background-owned tab detaches the UI without terminating its command
+  (BUG-434). Worker replacement, session switching, duplicate windows, and
+  closed-tab output fallback preserve the same authority.
 
-## Fixed
+## Goal control and budgeting
 
-- **Live tasks cannot reuse or race another task's terminal renderer
-  (BUG-410).** Each coordinator owns one retained WebView. Serialized
-  workspace/tab/generation keys fence replay, append, theme, decoration, find,
-  scroll, and callback work while background PTYs and session routing continue.
-- **Completed commands no longer stay visually running during a sustained
-  stream (BUG-411).** Status, exit code, and duration update immediately;
-  expensive row re-anchoring remains bounded and coalesced.
-- **Split PTY reads no longer corrupt valid Unicode (BUG-412).** Box drawing,
-  block characters, emoji, and other multibyte UTF-8 survive arbitrary transport
-  chunk boundaries; genuinely malformed or truncated bytes still repair safely.
-- **Auto denials no longer expose internal policy machinery to the acting model
-  (BUG-414).** The result is `Blocked: <bounded explanation>` when useful
-  optional prose exists, or `Blocked.` otherwise. Authority basis, semantic
-  boundary, retry state, and audit metadata remain internal, and freeform
-  explanations are not persisted in authority history.
-- **Gemini tool schemas no longer include unsupported `dependentRequired`
-  keywords (BUG-415).** Conversion remains recursive and does not mutate the
-  source schema.
+- **Goal budgets now measure generated output.** Provider-reported output is
+  the allowance; input, cache, call-count, current-context, and cumulative
+  Session usage remain separate diagnostics. Missing terminal metering halts
+  safely instead of becoming a zero-cost continuation path.
+- **The Goal popover uses compact progressive disclosure.** Latest Work,
+  current context, efficiency details, output/time safeguards, and the actions
+  that are valid for the exact Goal state are visible without rewriting live
+  limits from Settings.
+- **Continuation is explicit.** Manual continuation adds a bounded output
+  tranche. Paused Resume preserves current limits, while extending a hard
+  output or active-time limit requires its own typed, revision-checked action.
+  End and Clear remain distinct and confirmed.
+- **Wrap-up preserves terminal truth.** Completion, pause, budget, and
+  iteration summaries retry only safe pre-content transient failures and do
+  not replay the Goal mutation.
+
+## Providers and web extraction
+
+- **Prompt caching now follows Sirius's stable-prefix boundary (BUG-429).**
+  Anthropic and Claude-through-OpenRouter cache the byte-identical stable
+  system prefix separately from volatile memory, time, Plan, and Goal state.
+  OpenRouter also receives a non-owning session-scoped affinity key. Prompts,
+  tools, permissions, reasoning replay, lifecycle, and provider ownership are
+  unchanged.
+- **Parallel host-backed `web_read` is contained (BUG-430).** Rendered WebKit
+  captures no longer enter the Trafilatura/lxml/htmldate path that could kill a
+  session worker. Host captures use safe HTML parsing; the remaining CLI/no-host
+  extraction is serialized and carries start/finish telemetry for recovery.
 
 ## Verification status
 
-- The reconciled permission, engine, security, and session slice passed 610
-  tests. Changed-file Ruff, generated-wiki drift, and diff whitespace checks
-  are clean.
-- Terminal ownership, generation fencing, command-status, UTF-8 streaming,
-  appearance, accessibility, and Gemini schema regressions are covered by the
-  native and provider test suites.
+- The final tree passed 7,782 Python tests with 23 skips. The non-slow Python
+  gate passed 7,775 tests with 17 skips and 13 deselections.
+- The native suite passed 3,327 XCTest entries plus all 13 Swift Testing cases.
+- The signed isolated background-manager release matrix passed all 16 required
+  scenarios, including ignored-SIGINT Force Quit, cross-session routing,
+  closed-tab retention, worker replacement, duplicate-window read-only state,
+  migration, and fail-closed busy/corrupt/newer-schema stores. Keyboard,
+  VoiceOver, motion, contrast, text-size, density, nested-signature, and orphan
+  checks also passed.
 
 ## Distribution
 
 - macOS 26 (Tahoe) or later.
 - Developer ID signed and Apple notarized.
-- Sparkle build 146 with the matching signed core-runtime feed.
+- Sparkle build 147 with the matching signed core-runtime feed.
