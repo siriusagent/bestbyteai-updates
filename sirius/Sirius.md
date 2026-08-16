@@ -1,34 +1,35 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.1-alpha.024
+# Sirius v0.1.1-alpha.025
 
-Alpha.024 is a focused hotfix for local Ollama models whose chat templates
-require system messages to appear before all conversation content.
+Alpha.025 is a focused hotfix for Telegram and other generic messaging
+channels when Auto permissions are enabled.
 
-## Ollama hotfix
+## Channel hotfix
 
-- **Qwen3.8 and other strict templates now accept Sirius agent turns.** The
-  Ollama adapter preserves Sirius's complete leading structured system prefix
-  and translates only later current-turn recovery, routing, tool-availability,
-  and nudge hints into the user lane at their original temporal position.
-- **Sirius behavior outside Ollama is unchanged.** Provider-neutral prompts,
-  tool schemas, permissions, session lifecycle, and every other provider keep
-  their existing paths.
-- **Ollama failures are actionable.** JSON error details from the local daemon
-  now appear in Sirius diagnostics instead of collapsing to a generic HTTP 500
-  traceback.
+- **Incoming channel messages reach Sirius again.** Per-user channel sessions
+  now receive an isolated permission context with a fresh synchronization
+  lock. This removes the pre-model failure that silently swallowed messages
+  after the Auto-permissions update.
+- **Unexpected early failures are visible.** If channel setup fails before the
+  model turn begins, Sirius logs the failure and returns a retry message to the
+  sender instead of dropping the task without feedback.
+- **Transport and model behavior are otherwise unchanged.** Telegram polling,
+  channel routing, provider selection, permissions, and reply delivery retain
+  their existing contracts.
 
 ## Verification
 
-- The complete non-slow Python gate passed 7,812 tests with 17 skips and 13
-  deselections.
-- The focused Ollama provider, streaming, override, cloud, and probe gate
-  passed 84 tests with one opt-in live-network test skipped.
-- Ruff, exact wiki drift, and diff checks passed.
+- The non-slow engine gate passed 7,814 tests with 17 skips and 13
+  deselections; the full Swift host gate passed 3,365 tests with 20 skips.
+- The focused channel and permission regression gate passed 671 tests with 7
+  skips.
+- Ruff, generated-wiki drift, and diff checks passed.
+- The signed release bundle carries the matching updated core-runtime feed.
 
 ## Distribution
 
 - macOS 26 (Tahoe) or later.
 - Developer ID signed and Apple notarized.
-- Sparkle build 149 with the matching signed core-runtime feed.
+- Sparkle build 150 with the matching signed core-runtime feed.
