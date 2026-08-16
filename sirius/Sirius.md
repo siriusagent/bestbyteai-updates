@@ -1,35 +1,45 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.1-alpha.025
+# Sirius v0.1.1-alpha.026
 
-Alpha.025 is a focused hotfix for Telegram and other generic messaging
-channels when Auto permissions are enabled.
+Alpha.026 is a focused hotfix for background-task output recovery and updates
+the native worker runtime to SwiftPython `0.6.0-duplex.7`.
 
-## Channel hotfix
+## Background output hotfix
 
-- **Incoming channel messages reach Sirius again.** Per-user channel sessions
-  now receive an isolated permission context with a fresh synchronization
-  lock. This removes the pre-model failure that silently swallowed messages
-  after the Auto-permissions update.
-- **Unexpected early failures are visible.** If channel setup fails before the
-  model turn begins, Sirius logs the failure and returns a retry message to the
-  sender instead of dropping the task without feedback.
-- **Transport and model behavior are otherwise unchanged.** Telegram polling,
-  channel routing, provider selection, permissions, and reply delivery retain
-  their existing contracts.
+- **Captured output survives a task-revision race in the manager.** Sirius now
+  refreshes the authoritative task snapshot and retries once with the current
+  revision instead of decoding a typed stale response as a broken store.
+- **Unavailable states tell the truth.** A task already pruned after its result
+  was delivered and a missing output capture no longer claim that the SQLite
+  task store could not be verified.
+- **Retry advances authority.** Output retry reads the refreshed server row;
+  navigation, session, and worker-lifetime fences continue to reject late data.
+
+## Runtime update
+
+- The app now ships the exact matched SwiftPython `0.6.0-duplex.7` Runtime,
+  private Engine, and worker artifacts.
+- Worker wire remains v6. The new backend-neutral accelerator contract is
+  additive and capability-gated; this hotfix does not change Sirius provider,
+  tool, permission, or accelerator selection behavior.
+- SwiftPython also fixes a duplex playback-acknowledgement race that could lose
+  the acknowledged output cursor during terminal publication.
 
 ## Verification
 
-- The non-slow engine gate passed 7,814 tests with 17 skips and 13
-  deselections; the full Swift host gate passed 3,365 tests with 20 skips.
-- The focused channel and permission regression gate passed 671 tests with 7
-  skips.
-- Ruff, generated-wiki drift, and diff checks passed.
-- The signed release bundle carries the matching updated core-runtime feed.
+- Focused background-task manager tests cover stale-revision refresh/retry,
+  pruned-task messaging, missing capture, malformed versions, and cancelled
+  presentation authority.
+- The full Swift host gate passed after a clean package rebuild.
+- The checked-in SwiftPython public guide and standard interfaces match the
+  immutable `0.6.0-duplex.7` commercial revision.
+- Full host, package, signed-bundle, notarization, Gatekeeper, and public-feed
+  evidence is required before this release is marked shipped.
 
 ## Distribution
 
 - macOS 26 (Tahoe) or later.
 - Developer ID signed and Apple notarized.
-- Sparkle build 150 with the matching signed core-runtime feed.
+- Sparkle build 151 with the matching signed core-runtime feed.
