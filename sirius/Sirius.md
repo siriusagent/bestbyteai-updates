@@ -1,98 +1,107 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.1-alpha.028
+# Sirius v0.1.1-alpha.029
 
-Alpha.028 makes long browser work transactional and durable, carries
-attachments through running-turn Steer, hardens provider catch-up across worker
-replacement, and adopts SiriusMarkdown 0.6.26.
+Alpha.029 is a substantial native-automation release: it introduces bounded
+Computer Use action sets, host-verified visual evidence and painted-text OCR,
+first-class oMLX management, native vision routing, and safer Browser file and
+dialog handling.
 
-## Browser actions keep their identity and evidence
+## Computer Use is experimental — and intentionally takes a different route
 
-- **Compact observations now retain one snapshot lineage.** Paging reprojects
-  the original descriptor universe instead of recapturing a moving page, and
-  stale lineage fails explicitly.
-- **Controls have stable semantic identity.** Generic control and collection
-  context IDs keep state changes attached to the same target even when labels
-  mutate.
-- **Conditions remain target-scoped.** An identity mismatch is not a match,
-  common text elsewhere on the page cannot satisfy an exact target condition,
-  and target state, detachment, expansion, or popup evidence can settle the
-  intended action without being overwritten by unrelated page drift.
-- **Opaque frames remain safely actionable.** Rendered cross-origin frames stay
-  visible as bounded pointer surfaces. Trusted keyboard input requires a fresh
-  snapshot proving focus and never adds a speculative second click.
+Sirius Computer Use remains **experimental**. It is built on the app's
+SwiftPython architecture, but the responsibilities are deliberately split:
+the agent loop and typed tools run in process-isolated SwiftPython workers,
+while the signed Swift host performs macOS observation, input, authority, and
+verification. That is a different route from the common screenshot-first
+computer-use loop.
 
-## Long research runs retain their proof
+| Dimension | Common screenshot-first route | Sirius Alpha.029 route |
+|---|---|---|
+| Runtime boundary | A model returns mouse/keyboard actions to a browser, VM, or desktop executor. | A Python agent worker calls typed native-host callbacks through SwiftPython. |
+| Perception | Repeated screenshots are the primary state. | Accessibility semantics come first; ScreenCaptureKit and Apple Vision OCR cover visual or painted surfaces. |
+| Action targeting | Coordinates and keystrokes are usually the main contract. | Snapshot/capture-bound refs, exact app/window identity, AX actions, and explicit PID/HID fallbacks are separate contracts. |
+| Verification | The next screenshot is commonly judged by the model. | The host evaluates declared postconditions across AX, window, pixel, visual, and requested OCR evidence, then returns ordered receipts. |
+| Web apps | The desktop pointer path often drives the browser too. | DOM-backed sites prefer Sirius Browser Use; native Computer Use is the fallback for native or non-DOM surfaces. |
+| Control | Environment policy surrounds the executor. | Per-session grants, sensitive-target blocks, FIFO mutation ownership, and user-interruption yield live in the macOS host. |
 
-- New and selected tabs use the same bounded slow-JavaScript settlement as an
-  ordinary navigation before returning their final controls.
-- A page-created popup may close itself, but page script cannot close a tab
-  created by Sirius or the user.
-- Productive browser work no longer loses browser tools at an arbitrary call
-  count. Semantic no-progress detection and non-retry-safe ambiguous-mutation
-  handling remain active.
+This is not a claim of universal application compatibility or benchmark
+parity. Accessibility and Screen Recording permissions still matter, custom-
+drawn Electron/Qt/OpenGL surfaces remain uneven, and an action without enough
+evidence stays `unconfirmed` instead of being promoted to success. The KiCad
+work behind this release also exposed a real limit: its wxWidgets/OpenGL canvas
+accepts synthetic pointer input intermittently, and painted-grid keyboard
+movement can be invisible to the anti-thrash guards.
 
-## Attachments work through Steer
+## Native Computer Use gains evidence, composition, and safer control
 
-- A running-turn Steer can carry images and documents, including an
-  attachment-only follow-up. The pending transcript row owns and previews the
-  original files while the staged manifest is validated and retained.
-- Python slurps and bounds the attachment bytes before admission, then persists
-  each accepted blob against the exact steered user row.
-- Proven-safe normal-turn fallback transfers the same manifest. Uncertain
-  delivery retains staging until the user explicitly sends again or dismisses
-  it; skill chips remain unsupported rather than being flattened into text.
+- **One bounded action-set executor.** `computer_use_transaction` accepts up to
+  16 typed steps / 12 mutations. Each step resolves against fresh state,
+  dispatches at most once, records an ordered receipt, and requires a verified
+  or explicitly satisfied gate before the next mutation. There is no rollback,
+  resume, or blind replay.
+- **Universal visual evidence.** Mutations attempt broker-owned before/after
+  window captures with canonical pixel identities and exact identical/different
+  relations. Inline-capable providers receive ordered unique post-state images;
+  duplicate images collapse to references.
+- **On-device painted-text OCR.** Apple's Vision recognizer extracts text and
+  window-space boxes from explicit or descriptor-poor captures. OCR refs are a
+  separate namespace, remain capture-bound, and never silently replace AX
+  semantics or ambiently prove a mutation.
+- **Declared postconditions.** Callers can state the intended effect; the host
+  verifies it through scoped AX/window/pixel/requested-OCR channels instead of
+  treating any screen change as success.
+- **More honest input and recovery.** Capture-bound coordinates, pointer
+  hit-test diagnostics, pid/HID delivery ladders, double-clicks, anchored
+  scroll, cursor-move-before-click for crosshair surfaces, user-interruption
+  yield, and verified-progress replay expiry reduce blind repetition.
+- **Budget-safe desktop state.** Large app/window inventories now compact in
+  valid JSON and disclose any final kept/total window cap.
 
-## Provider routing and session catch-up
+## Local models and native vision
 
-- OpenAI-compatible routes can learn two precise pre-stream restrictions from
-  an exact HTTP 400: automatic tool choice and one leading system message. The
-  repair is provider/model-local, runs once, preserves instruction order, and
-  keeps forced-tool requirements enforced locally.
-- Persisted provider defaults no longer wake a dormant controller with a stale
-  session handle after resource-pressure idle shedding. The next real dispatch
-  rebuilds from the latest effective snapshot; live overrides revalidate and
-  recover once against the replacement worker generation.
+- **First-class keyless oMLX.** Sirius defaults to the local OpenAI-compatible
+  endpoint, discovers the live roster, preserves hot-swap identity, and sends
+  native VLM image blocks. The macOS settings pane manages model load/unload,
+  tuning and downloads plus oMLX memory, scheduling, SSD cache, and admin
+  sessions.
+- **Ollama vision discovery.** Compatible Model Hub results include native
+  Ollama Library vision packages and install them through Ollama's atomic pull
+  path. Sirius continues to exclude raw Hugging Face vision imports whose
+  auxiliary assets it cannot safely stage.
+- **Provider-native image delivery.** Screenshots, browser frames, and image
+  attachments become native image blocks on inline-capable routes. Non-inline
+  providers retain the persisted `vision_analyze` fallback.
 
-## SiriusMarkdown 0.6.26
+## Browser and workspace reliability
 
-- Sirius now resolves the public `0.6.26` tag at
-  `1a7a03b00e446eed1dc277f5e284c4515c9db292`.
-- Asynchronous globe-to-favicon replacement stays destination-correct and
-  selectively reprepares only affected blocks.
-- Authorized HTML `colspan` and `rowspan` participate in bounded native layout,
-  borders, selection geometry, and width-specific measurement.
-- Nested Markdown and authorized HTML containers retain native child blocks in
-  source order through the same rendering, policy, overflow, copy, selection,
-  and link-metadata paths.
+- Completed browser downloads return their real local destination in ordinary
+  results. File selection is part of the same click/transaction action, and an
+  agent-owned WebKit chooser fails closed instead of stranding a turn behind
+  Finder; manual clicks still receive the native picker.
+- JavaScript dialogs, camera/microphone prompts, and load failures use one
+  Sirius-branded host-dialog family. Browser strategy checkpoints are soft
+  reviews rather than tool-removal ceilings, while mutation replay safety stays
+  hard.
+- Browser authentication/WebAuthn telemetry is more precise, live session
+  switching preserves composer ownership, and DiffTree operations remain
+  rooted in the selected project/workspace snapshot.
 
 ## Verification
 
-- SiriusMarkdown's 966-test product gate, visual probes, release CI, and fresh
-  external SwiftPM consumer passed on the exact published commit.
-- Focused browser suites cover retained lineage, target conditions, semantic
-  diffs, tab ownership, slow-JavaScript settlement, opaque-frame focus, and 40
-  productive browser decisions without a call ceiling. Signed live validation
-  retained 42 inspectable proof tabs and saved a 14,860-character document in a
-  focused opaque frame.
-- Focused Steer coverage proves attachment-only admission, pre-admission byte
-  retention, malformed-manifest rejection, exact-row persistence, and safe
-  fallback. A signed isolated app completed a PDF-bearing interrupt-and-steer
-  and persisted the 341,936-byte document on the accepted user row.
-- Provider coverage reproduces both strict routed error dialects and exercises
-  dormant-default deferral, next-dispatch rebuild, live-override recovery, and
-  a signed idle-shed catch-up with no stale-handle worker command.
-- The non-slow Python gate passed 7,724 tests with 28 skips and 12
-  deselections. The full Swift host gate passed 3,411 XCTest cases with 21
-  skips plus 13 Swift Testing cases. The focused SiriusMarkdown/user-bubble
-  host gate passed 47 tests; Ruff, wiki drift, and whitespace audits passed.
-- Signed-bundle integrity, app and DMG notarization/stapling, Gatekeeper,
-  Sparkle/runtime signatures, and hosted-byte identity are hard publication
-  gates for this release.
+- Focused Computer Use, OCR, action-set, postcondition, visual-evidence,
+  provider, Browser, session, and DiffTree regression suites cover the new
+  contracts.
+- The non-slow Python gate passed 7,817 tests with 28 skips and 12
+  deselections. The full Swift host gate passed 3,619 XCTest cases with 22
+  skips plus 13 Swift Testing cases.
+- Changed-file Ruff, generated-wiki drift, and whitespace audits passed.
+  Signed-bundle integrity, notarization/stapling, Gatekeeper, Sparkle/runtime
+  signatures, and hosted-byte identity remain hard publication gates.
 
 ## Distribution
 
 - macOS 26 (Tahoe) or later.
 - Developer ID signed and Apple notarized.
-- Sparkle build 153 with the matching signed core-runtime feed.
+- Sparkle build 154 with the matching signed core-runtime feed.
