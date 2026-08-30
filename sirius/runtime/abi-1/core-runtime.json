@@ -1,8 +1,8 @@
 {
-  "archiveBytes": 50613837,
-  "archiveSHA256": "2a8cdc9dfb546326a3f3af6313bb34e8eaf95d6b233ee0c587baa5cb0d71e7b7",
-  "archiveURL": "https://updates.bestbyteai.com/sirius/runtime/abi-1/core-runtime-2026.08.30.3.zip",
-  "builtWithAppVersion": "0.1.2-alpha.002",
+  "archiveBytes": 50618503,
+  "archiveSHA256": "58bb6e78d4542961a68a6a7aefd46739879a08910ddaf25d1e2044694b008e5b",
+  "archiveURL": "https://updates.bestbyteai.com/sirius/runtime/abi-1/core-runtime-2026.08.30.4.zip",
+  "builtWithAppVersion": "0.1.2-alpha.003",
   "compatibleHostABI": 1,
   "componentID": "core-runtime",
   "packageLockSHA256": "97764987114689e43a5933c9e18b90a0a5f761a537475b7a2dc47a3649061f93",
@@ -119,8 +119,8 @@
     "websockets": "17.1",
     "yarl": "1.24.5"
   },
-  "runtimeInputSHA256": "3e97b573494dd874ab02240489fc3cf617c3a05ae66693ea4c78bdd366bdf4c5",
+  "runtimeInputSHA256": "f4aa5cee5543f546ebc93607d092bf0b40b8da5ab93682103a87b59a657a99d9",
   "schemaVersion": 2,
-  "treeSHA256": "b7876526c081fd1144e5f905a60ea206e55cfbda8c05e88cb0995d0005f60ecb",
-  "version": "2026.08.30.3"
+  "treeSHA256": "457b34a528eaf2113a06193c6565d1c5f2b9dac8b889eed2bcfa5e42b6a971d8",
+  "version": "2026.08.30.4"
 }
