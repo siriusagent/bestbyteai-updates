@@ -12,9 +12,9 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <sparkle:releaseNotesLink sparkle:edSignature="VnWgTHZiJmVcNb3lPDRT8cmy1jX9uYwV+DRauYzTzy90r9Q+ZwTPioIO9qolafyrDNB6Co2Y1LWLH1oLohiCAQ==" sparkle:length="7352">https://updates.bestbyteai.com/sirius/Sirius.md</sparkle:releaseNotesLink>
             <enclosure url="https://github.com/siriusagent/siriusagent/releases/download/v0.1.2-alpha.002/Sirius.dmg" length="80907637" type="application/octet-stream" sparkle:edSignature="MHMBfQe/4raXUUDWluZf6oNwEvWPu76T0geLYXpJK5kx/ppgpXWk0w13b0DmXYU5T7wqwjgZjWbePpzFsBPEDA=="></enclosure>
-        <sirius:coreRuntimeVersion>2026.08.30.2</sirius:coreRuntimeVersion><sirius:coreRuntimeHostABI>1</sirius:coreRuntimeHostABI><sirius:coreRuntimeManifestURL>https://updates.bestbyteai.com/sirius/runtime/abi-1/core-runtime.json</sirius:coreRuntimeManifestURL><sirius:coreRuntimeSignatureURL>https://updates.bestbyteai.com/sirius/runtime/abi-1/core-runtime.json.sig</sirius:coreRuntimeSignatureURL><sirius:coreRuntimeArchiveSHA256>95a5bd9a9539801b4d241232b0f53f86fe378e3fe777dbcbe6a865e1a4022057</sirius:coreRuntimeArchiveSHA256></item>
+        <sirius:coreRuntimeVersion>2026.08.30.3</sirius:coreRuntimeVersion><sirius:coreRuntimeHostABI>1</sirius:coreRuntimeHostABI><sirius:coreRuntimeManifestURL>https://updates.bestbyteai.com/sirius/runtime/abi-1/core-runtime.json</sirius:coreRuntimeManifestURL><sirius:coreRuntimeSignatureURL>https://updates.bestbyteai.com/sirius/runtime/abi-1/core-runtime.json.sig</sirius:coreRuntimeSignatureURL><sirius:coreRuntimeArchiveSHA256>2a8cdc9dfb546326a3f3af6313bb34e8eaf95d6b233ee0c587baa5cb0d71e7b7</sirius:coreRuntimeArchiveSHA256></item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: c3q2j7vosU+HqGKQb2d9Yv1YBTflNlE9hQBqhdWHh/8ezIME8WScGK6Id+u47nj+/HbNxfTwkkjzxBWQAd0MAQ==
+edSignature: lePQzFqXTddJPoT2jyIrmMKJvt2bBcppIkxOUBvLKy0zOUjkPCM+HVusmR5MisBJB9BjbVly10PlbfOhUdgODg==
 length: 1997
 -->
