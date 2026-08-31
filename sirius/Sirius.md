@@ -1,40 +1,53 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.2-alpha.004
+# Sirius v0.1.2-alpha.005
 
-Alpha.004 is a focused host-app repair for two failures introduced by the
-previous alpha.
+Alpha.005 is a focused macOS host patch for six verified interaction and
+state-boundary defects in Alpha.004.
 
-## Older conversation pages no longer crash
+## Transcript controls no longer leave a blue focus rectangle
 
-- Loading an older page that contains assistant tool output no longer triggers
-  a Swift dynamic-exclusivity abort in optimized builds.
-- History prepend now reconstructs its transcript side indices in one local
-  state and publishes that state atomically.
-- The exact assistant/tool page is covered in both the normal Swift suite and
-  an optimized Release regression gate.
+- Clicking ordinary activity, search, tool, and reasoning disclosure rows no
+  longer transfers keyboard focus into generic transcript controls.
+- Keyboard focus and Return/Space activation remain available for sub-agent
+  inspector controls that intentionally require them.
+- The repaired policy is covered by mounted AppKit pixel and activation tests.
 
-## Fresh public installs recover the engine before boot
+## Conversation history cannot cross session boundaries
 
-- A public no-seed app with an empty Sirius home now downloads and verifies the
-  signed Sirius Engine before starting workers. It no longer falls through to
-  `No module named 'sirius_agent'`.
-- The recovered candidate retains the existing rollback contract and is
-  committed only after the real worker fleet reports a successful bootstrap.
+- Clearing a slot for a fresh conversation now invalidates any older-history
+  request still in flight for the previous session.
+- A late page can no longer prepend old rows into the new chat after the first
+  message is sent.
 
-## Project loading always reaches a terminal state
+## The Chats sidebar reports real load state
 
-- The Projects sidebar now distinguishes idle, loading, loaded, and failed
-  queries independently from chat loading.
-- Its first Python-backed query starts only after the signed managed runtime is
-  ready, so a no-seed launch cannot strand a pre-bootstrap request.
-- A failure stops the spinner and presents an accessible Retry action. A
-  successful query with zero projects shows **No projects yet**.
+- The bridge's initial empty publisher value no longer masquerades as a
+  completed database query.
+- Chats show **Loading chats…** until SQLite answers, **No chats** only after a
+  successful empty result, and an accessible Retry action after failure.
+
+## Canceled turn controls stay canceled
+
+- A Stop, Steer, Goal, or sub-agent control canceled while waiting behind
+  another control is removed from the submission queue.
+- Cancellation racing gate ownership releases that ownership without sending
+  the stale mutation or wedging later controls.
+
+## Provider changes are atomic and honestly reported
+
+- Active-provider backend changes resolve a valid model before publishing or
+  saving the new selection. Sirius no longer hot-swaps an intermediate empty
+  model that temporarily puts channels into fail-closed mode.
+- Superseded catalogue results cannot overwrite a newer picker choice.
+- The green success chip now appears only after both the configuration write
+  and live provider fan-out succeed; failures use the existing error surface
+  instead of a timer-generated success message.
 
 ## Notes
 
-- Sparkle build version is `160` (`CFBundleVersion`). Apps on build `159` or
+- Sparkle build version is `161` (`CFBundleVersion`). Apps on build `160` or
   earlier will be offered this release.
 - The signed ABI-1 core runtime remains engine version `2026.08.30.4`; this
   release changes only the macOS host and reuses the already verified runtime
