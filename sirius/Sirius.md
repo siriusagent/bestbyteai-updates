@@ -1,47 +1,41 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.2-alpha.003
+# Sirius v0.1.2-alpha.004
 
-Alpha.003 makes long-running work stay cheap to reopen and continue. It also
-restores autonomous Goal creation for genuine multi-turn requests and replaces
-the blunt per-turn token-only stall cutoff that could halt corrective work.
+Alpha.004 is a focused host-app repair for two failures introduced by the
+previous alpha.
 
-## Long conversations load what you can see
+## Older conversation pages no longer crash
 
-- Opening a persisted conversation now fetches a bounded newest page instead of
-  every message, replay event, and attachment. The normal target is 160 timeline
-  items; a user-turn boundary may extend the page to a hard maximum of 256.
-- Older history loads one page at a time only when you reach the real top edge.
-  Duplicate scroll notifications coalesce, and AppKit preserves the visible row
-  and pixel offset while rows prepend—there is no forced jump back to the tail.
-- A single exceptionally large turn continues across bounded pages instead of
-  making the whole conversation fail to open.
+- Loading an older page that contains assistant tool output no longer triggers
+  a Swift dynamic-exclusivity abort in optimized builds.
+- History prepend now reconstructs its transcript side indices in one local
+  state and publishes that state atomically.
+- The exact assistant/tool page is covered in both the normal Swift suite and
+  an optimized Release regression gate.
 
-## Continuing work no longer rehydrates everything
+## Fresh public installs recover the engine before boot
 
-- A resumed worker receives the opening objective, a bounded recent tail, and a
-  private recall marker when older durable history was omitted. Exact older
-  evidence remains available from SQLite through session search.
-- The in-worker transcript keeps a bounded recent resident window while tracking
-  the full logical count and absolute durable ordering, so the next message
-  cannot overwrite or collide with omitted history.
-- Forking an attachment-heavy conversation remaps copied attachment references
-  with one set-based transcript update instead of rescanning every message once
-  per attachment.
+- A public no-seed app with an empty Sirius home now downloads and verifies the
+  signed Sirius Engine before starting workers. It no longer falls through to
+  `No module named 'sirius_agent'`.
+- The recovered candidate retains the existing rollback contract and is
+  committed only after the real worker fleet reports a successful bootstrap.
 
-## Goals get room to recover
+## Project loading always reaches a terminal state
 
-- Sirius can again start a durable Goal when the current request clearly needs
-  work across turn boundaries; provenance and explicit Goal-denial rules still
-  apply.
-- The no-progress backstop now requires both 250,000 prompt tokens and three
-  model calls since authoritative progress. A failed action can replan and make
-  a corrective attempt without an immediate sledgehammer stop.
+- The Projects sidebar now distinguishes idle, loading, loaded, and failed
+  queries independently from chat loading.
+- Its first Python-backed query starts only after the signed managed runtime is
+  ready, so a no-seed launch cannot strand a pre-bootstrap request.
+- A failure stops the spinner and presents an accessible Retry action. A
+  successful query with zero projects shows **No projects yet**.
 
 ## Notes
 
-- Sparkle build version is `159` (`CFBundleVersion`), the primary auto-update
-  comparison key. Apps on build `158` or earlier will be offered this release.
-- The signed ABI-1 core-runtime feed advances to engine version
-  `2026.08.30.4`, built with app version `0.1.2-alpha.003`.
+- Sparkle build version is `160` (`CFBundleVersion`). Apps on build `159` or
+  earlier will be offered this release.
+- The signed ABI-1 core runtime remains engine version `2026.08.30.4`; this
+  release changes only the macOS host and reuses the already verified runtime
+  feed.
