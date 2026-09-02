@@ -1,0 +1,10 @@
+{
+  "archiveSHA256": "7dc2cbc453090fb48b81b257b66ec8f828041f16867c94f7537c2f774ffe4f29",
+  "archiveURL": "https://updates.bestbyteai.com/sirius/runtime/core-runtime-0.1.1-alpha.033.zip",
+  "compatibleAppBuildVersion": "163",
+  "compatibleAppShortVersion": "0.1.1-alpha.033",
+  "componentID": "core-runtime",
+  "runtimeInputSHA256": "fd30087463f35bb72de4b56b19f2773b00ecf1838c4b93e093395c00c488912b",
+  "schemaVersion": 2,
+  "version": "0.1.1-alpha.033"
+}

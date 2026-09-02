@@ -1,64 +1,75 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.1-alpha.032
+# Sirius v0.1.1-alpha.033
 
-We owe you an apology. Sirius 0.1.2 was unacceptably unstable, and shipping
-builds 157 through 161 damaged your trust. Those releases remain withdrawn.
-Alpha.032 is a deliberately narrow recovery patch on the stable 0.1.1 line,
-with a monotonic build number so it reaches both rollback users and anyone who
-still has a withdrawn 0.1.2 build installed.
+Alpha.033 ships the complete runtime-component and credential-security work
+completed after Alpha.032. It does not restore code from the withdrawn 0.1.2
+line, and the separately documented Mobile Access work remains a plan rather
+than a shipped feature.
 
-Features quarantined from 0.1.2 have not been merged back wholesale. They will
-be restored only after the same extensive signed-app, clean-install,
-long-session, cross-session, cancellation, provider, browser, runtime, and
-public-update testing applied to this patch.
+## AutoFill now stays in stable browser chrome
 
-## MCP works end to end again
+- The floating `key.fill` control and its page-geometry tracking stream are
+  gone. AutoFill now has one fixed toolbar position after Go.
+- The only route in the build invokes WebKit's native context menu for the
+  currently focused eligible field. macOS and the user's enabled AutoFill
+  providers continue to own authentication, selection, and filling.
+- Sirius receives no website username or password, never submits the form, and
+  exposes no website-credential path to the agent, Python workers, logs, or
+  persistence.
 
-- Sirius now pins MCP 2.1.1 exactly and uses its current streamable-HTTP,
-  result-decoding, server, and OAuth contracts.
-- OAuth completes protected-resource discovery, authorization-server metadata,
-  dynamic client registration, PKCE authorization, callback validation, token
-  exchange, secure token persistence, and authenticated tool calls.
-- Both stdio and OAuth MCP tools were loaded and called from real workers in a
-  freshly signed isolated Sirius app.
+## Credentials & Access makes ownership explicit
 
-## The embedded Python runtime is self-contained
+- Settings now separates Agent & API Secrets, system-managed Website Sign-Ins,
+  Passkeys & Security Keys, and Storage & Access.
+- Sirius-owned secrets have declared namespaces and protection profiles for
+  legacy automation, foreground/background automation, and explicit
+  user-presence use.
+- The signed app carries its team-scoped Data Protection Keychain access group;
+  workers do not. Existing secrets remain compatible, and individual items can
+  be upgraded explicitly without a bulk rewrite.
+- Keychain replacement is add-or-update and loss-safe: a failed replacement no
+  longer deletes the installed value first.
 
-- Sirius now ships `swiftpython-commercial` `0.6.0-duplex.8.3` at exact
-  revision `84c0707ba3eb39ae3a8b234614856900314f5e59`.
-- Workers load Python only from
-  `Sirius.app/Contents/Frameworks/Python.framework`, including when launched
-  with a hostile `PYTHONHOME` and restricted `PATH`.
-- A signed worker completed `asyncio.current_task()` and
-  `asyncio.wait_for()`; Python created no new bytecode in the framework and
-  strict code-sign verification still passed after launch.
-- Optional components now install through a signed app-owned helper linked to
-  that same framework. The signed core runtime supplies pip; Sirius no longer
-  discovers or falls back to Homebrew, python.org, PATH, or another host Python.
+## Components can discover and install safe updates
 
-## Agent and tool reliability
+- Components checks installed optional Python components with pip's own resolver
+  inside Sirius's app-owned runtime and exact supported requirement ranges. It
+  does not treat an unconstrained registry version as compatible.
+- Available updates appear as explicit Update actions with accessible badges in
+  the Settings action and Components category. Opening Settings does not clear
+  them.
+- Updates reuse isolated staging, complete import validation, and atomic
+  promotion. Failure or cancellation leaves the current installation live.
+- The embedded installer now supports the real script and `-c` child forms used
+  by pip and PEP 517 source builds while preserving cancellation of the complete
+  child process group.
+- Signed schema-2 core-runtime metadata binds every runtime update to the exact
+  compatible Sirius version and build before it becomes actionable.
 
-- A valid planning event no longer makes a successful turn fail as malformed.
-- Google pages that hide result destinations behind opaque `/goto` links now
-  recover the visible public URL instead of returning an empty result set.
-- Beautiful Soup and Markdownify are included in the signed core runtime, so
-  native web reads and searches do not depend on an optional browser component.
-- Qualified instructions such as “do not call tools separately outside
-  `execute_dag`” no longer prohibit the DAG route the user explicitly asked
-  Sirius to use.
+## Reliability fixes
+
+- BUG-496: removed the field-relative AutoFill overlay that could drift across
+  the webpage.
+- BUG-497: stopped Keychain saves from deleting an item before its replacement
+  was accepted.
+- BUG-498: fixed Credentials header sizing that could push Settings content out
+  of the window.
+- BUG-499: removed the LazyVStack/FlowLayout sizing loop that could hang the
+  Credentials catalog.
+- BUG-500: model discovery in Settings now uses the native main-interpreter
+  Keychain bridge, so providers can read explicitly upgraded protected items.
 
 ## Verification
 
-- Python: 8,000 passed, 40 skipped.
-- Swift: 3,750 XCTest cases passed, 23 skipped, plus 13 Swift Testing cases.
-- Fresh signed-app sessions covered plan, goal, browser, shell, file
-  reads/writes, web tools, DAGs, MCP, memory, session search, consolidation,
-  reflections, and worker replacement.
-- The signed app and DMG, Apple notarization and stapling, Sparkle and core
-  runtime signatures, update-feed publication, and hosted-byte identity are
-  required before this release is considered shipped.
-
-Thank you for sticking with Sirius while we corrected this. We are sorry the
-0.1.2 releases reached you in that state.
+- Swift: 3,808 passed, 0 failed.
+- Python: 7,999 passed with the non-slow gate, 0 failed.
+- A freshly signed isolated Sirius app reached runtime-ready, passed the fixed
+  WebKit AutoFill human gate, reported Data Protection Keychain availability,
+  and completed protected-credential provider discovery.
+- The release is not considered shipped until the exact Alpha.033 candidate
+  passes Developer ID signing, the signed-bundle verifier including its sole
+  Keychain access group, Apple notarization and stapling for both app and DMG,
+  Gatekeeper, Sparkle/core-runtime signature verification, publication, and
+  hosted-byte comparison.
