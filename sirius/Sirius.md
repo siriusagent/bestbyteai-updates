@@ -1,59 +1,40 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius v0.1.1-alpha.035
+# Sirius v0.1.1-alpha.036
 
-Alpha.035 makes background work inspectable, simplifies the Terminal, and
-replaces the old bug-report form with a useful local-first feedback workflow.
+Alpha.036 brings a dedicated Goal panel, clearer control over long-running work,
+and a substantial upgrade to native browser interaction.
 
-## Background Tasks is now a real right panel
+## A home for your goals
 
-- Click the status-bar background-task indicator to open a dismissible panel
-  that matches the Terminal's tabs and chrome. There is no extra toolbar icon.
-- Each task gets a read-only tab whose redacted output streams while the task
-  runs. Refresh, Copy, Stop, Open in Terminal, Force Quit, and Remove Stale
-  Record are available in the same panel.
-- Closing the panel never affects the task. Destructive confirmations remain
-  bound to the exact task you selected even if another task finishes while the
-  dialog is open.
+- Open the Goal panel to inspect the objective, progress, verification evidence,
+  usage, safeguards, and history in one place.
+- Pause and resume work, adjust output and active-time limits, and review the
+  scope without losing the goal's durable record.
+- Interrupted work offers an explicit recovery path. Missing usage reports and
+  exhausted safeguards stop continuation with a recorded reason.
+- Completion requires evidence and respects unfinished linked-plan work.
+  Progress checkpoints and control actions remain attached to the correct goal
+  across turn boundaries and worker recovery.
 
-## Terminal is cleaner
+## More capable browser interaction
 
-- The unused command gutter, status glyphs, hover cards, and overview markers
-  are gone, giving terminal output the full panel width and symmetric padding.
-- Command capture and history, keyboard navigation, and the native right-click
-  menu are unchanged.
+- Native mouse and keyboard input now belongs to the browser view, with improved
+  focus, scrolling, selection, and restoration behavior.
+- Actions revalidate their targets and retain evidence of what happened,
+  helping the agent distinguish a successful interaction from an uncertain one.
+- Native dialogs expose their decisions to the agent. WebKit callbacks and
+  download lifecycles have explicit ownership and cleanup.
+- AutoFill reveals the revalidated native target, and browser strategy reviews
+  use retained action evidence to guide the next attempt.
 
-## Share Feedback produces reports worth acting on
+## Runtime hardening
 
-- A new native intake covers bugs, bad results, good results, safety checks,
-  performance, and other feedback with one clear description field and
-  explicit evidence controls.
-- Bug investigations can reconstruct bounded session facts about model calls,
-  tools, timing, errors, mutations, and replay state. The resulting report can
-  include impact, metrics, a timeline, causal chain, severity and confidence,
-  negative findings, remediation, acceptance tests, unresolved questions, and
-  an evidence index.
-- Positive feedback is prepared locally without provider analysis. Every flow
-  shows the provider boundary before analysis and sends nothing until you
-  explicitly choose a destination.
-- Review is editable and shows the exact selectable Markdown payload. Privacy
-  options control whether a report remains local or may be copied, emailed, or
-  sent to GitHub.
-- Auto-saved report bundles track every review and privacy edit atomically.
-  Finder reveal verifies the report bytes, revision, policy, and SHA-256 digest
-  and fails closed instead of opening stale output.
+- Updated the complete matched SwiftPython runtime to 0.6.0-duplex.8.4, including
+  fixes for object ownership, conversions, callbacks, worker lifecycle, and
+  queue performance.
+- Browser outcomes and worker-pool lifecycle events are handled independently,
+  so a browser interaction does not masquerade as a runtime failure.
 
-## Privacy behavior is more useful
-
-- Final replies no longer replace ordinary phone numbers and email addresses
-  with generic PII markers.
-- Registered secrets, credentials, SSNs, payment cards, and credential-shaped
-  tokens remain scrubbed. Logs, transcript persistence, tools, memory, and
-  diagnostics keep the stricter redaction policy.
-
-## Everything from Alpha.034 remains
-
-The macOS 26.5 launch repair, stable Browser AutoFill toolbar action,
-Credentials & Access pane, protected Keychain support, and component update
-discovery all ship unchanged.
+Requires macOS 26 or later on Apple silicon.
