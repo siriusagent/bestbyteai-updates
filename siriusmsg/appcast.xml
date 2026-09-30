@@ -4,17 +4,17 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>SiriusMsg</title>
         <item>
-            <title>0.0.1</title>
-            <pubDate>Fri, 21 Aug 2026 17:03:03 -0400</pubDate>
-            <sparkle:version>12</sparkle:version>
-            <sparkle:shortVersionString>0.0.1</sparkle:shortVersionString>
+            <title>0.2.0</title>
+            <pubDate>Wed, 30 Sep 2026 14:22:01 -0400</pubDate>
+            <sparkle:version>17</sparkle:version>
+            <sparkle:shortVersionString>0.2.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <sparkle:releaseNotesLink sparkle:edSignature="JRhof1K5+fU4+ZtNnUUuSBMTn6l5pbbdV3pDf+9wOpxqBJe/q8QEgIkORqy5GIB5uvGUYOZmGSuF8OmlUmSIDA==" sparkle:length="1623">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.0.1-build.12/SiriusMsg-notarized.dmg" length="31787535" type="application/octet-stream" sparkle:edSignature="YNjFw4hw0zZIjhtod3KwilojX4rBgjqVzADpncM0TLKKXeh2TQbXZIr+m+6RZtAFDawwLDbnPuLln4CMbRhJDg=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="RUg3GXh6TECCS2XD1QmqiEFZ+Z3ODum80Py8LYGNfXcAS685Nh8Dfs08lfUOu4AS5tzlZdRVPj3fmw+hpR5gAg==" sparkle:length="5123">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.17/SiriusMsg-notarized.dmg" length="53419631" type="application/octet-stream" sparkle:edSignature="jCrl0C7m2BPe5f2NkvbnQBhx9e04Wp8oiioJZNmddflGPA5ZZwlNSB9JWQBK9ovk0QIUCUkgQ/4bdQMNuKYaAQ=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: dbcDviavU/JcdgfFrmjDuPzLhCG+NAVeVAqq+CXGtqx30JKB6UcgBceWo+24DgI8ILv4EH3hF4D7QEJ0QWLwCw==
+edSignature: COgSl6/XGR7N7nDhOcPyrqLzbpg5pivgz2ECpPXrTR44d+mGcD8YrY87z4srjYA2HeBE0M4oqAYrHW8scOTLAQ==
 length: 1403
 -->
