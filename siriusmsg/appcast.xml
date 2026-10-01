@@ -5,16 +5,16 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         <title>SiriusMsg</title>
         <item>
             <title>0.2.0</title>
-            <pubDate>Wed, 30 Sep 2026 17:35:01 -0400</pubDate>
-            <sparkle:version>18</sparkle:version>
+            <pubDate>Thu, 01 Oct 2026 09:55:22 -0400</pubDate>
+            <sparkle:version>19</sparkle:version>
             <sparkle:shortVersionString>0.2.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <sparkle:releaseNotesLink sparkle:edSignature="geu0dwUz7NawGoJ1xi5Z5bW5sg14QRyReSmZVuKA89aSNIfS9CyeDwboxMDvDPSGmyPg6smliwncl7FZzEL6AA==" sparkle:length="1847">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-notarized.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.18/SiriusMsg-notarized.dmg" length="53577612" type="application/octet-stream" sparkle:edSignature="Yxq1uCCRd8Opi/QE5JNKDPo1u8Z1RMHtk+9dabrMfmEzKEi5fskpuI4OLHEQ3AITnXyKqh7P0DznrT4I0jWxBA=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="pJgqGx1vUTXNbQVHW4vil10Qjiij0HQKiXxPfh8GyXbJaGDvKu+g2at5t9mVEBPT6dS05c8Ai0Lx9uCFMrtiAg==" sparkle:length="2151">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-0.2.0-build.19.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.19/SiriusMsg-0.2.0-build.19.dmg" length="53592306" type="application/octet-stream" sparkle:edSignature="R96TrYI1OvubR4+ou2YWAD1tfWZGd5pe39h6OwbKUJYBPXqdZNwDRu0qASQJ3UXBIY/zfAukST5TK6A2+tZYDA=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: ktrI2iUi+oKcg2xH38H+IeDhSpDYoXKFsG4r5uGbpFn6xHT9QBXeIqSSrKnIiDazbAgb8CJEWCpDnRoFTX4YBA==
-length: 1403
+edSignature: pqJieyU1u6DdfDAnurW6s9zMzYoq6o7VZZ+NSm33T44m0I3/rMsR5MM8DJF0SxRFo5iVVnzQ4mIm2ySd1mRhBA==
+length: 1413
 -->
