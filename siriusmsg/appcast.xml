@@ -5,16 +5,16 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         <title>SiriusMsg</title>
         <item>
             <title>0.2.0</title>
-            <pubDate>Thu, 01 Oct 2026 09:55:22 -0400</pubDate>
-            <sparkle:version>19</sparkle:version>
+            <pubDate>Tue, 06 Oct 2026 21:10:43 -0400</pubDate>
+            <sparkle:version>20</sparkle:version>
             <sparkle:shortVersionString>0.2.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <sparkle:releaseNotesLink sparkle:edSignature="pJgqGx1vUTXNbQVHW4vil10Qjiij0HQKiXxPfh8GyXbJaGDvKu+g2at5t9mVEBPT6dS05c8Ai0Lx9uCFMrtiAg==" sparkle:length="2151">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-0.2.0-build.19.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.19/SiriusMsg-0.2.0-build.19.dmg" length="53592306" type="application/octet-stream" sparkle:edSignature="R96TrYI1OvubR4+ou2YWAD1tfWZGd5pe39h6OwbKUJYBPXqdZNwDRu0qASQJ3UXBIY/zfAukST5TK6A2+tZYDA=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="nOPHnfYBFH/lkAQXQumuX9q3RtQpITod6/LxxO8oaMn5DJ0z2iT/ee6evvyqspLJ+SEgBI2fG6RSBKY08vepAg==" sparkle:length="2572">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-0.2.0-build.20.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.20/SiriusMsg-0.2.0-build.20.dmg" length="65900524" type="application/octet-stream" sparkle:edSignature="t5Xq9V/LA8OC8mcYnlttCQJdHHLWXhDkvHlYChQ8lxGH3KO1RXCwb5nZD/HycOs9uTespfynRDTKk14nyn/wBQ=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: pqJieyU1u6DdfDAnurW6s9zMzYoq6o7VZZ+NSm33T44m0I3/rMsR5MM8DJF0SxRFo5iVVnzQ4mIm2ySd1mRhBA==
+edSignature: yeCOyi6Vc2BHpqBjzAUareNfffYGEpnLnTNhfTgee1wDMI6yp5afFoilROzF8tIcVAnrvky2djiKGl365/amCQ==
 length: 1413
 -->
