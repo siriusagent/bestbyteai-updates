@@ -1,16 +1,12 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# SiriusMsg 0.2.0 (build 20)
+# SiriusMsg 0.2.0 (build 21)
 
-- Redesigned Connections around the AI agent you want to text, with discovery and native setup for Sirius, Codex, Claude Code, DeepSeek, OpenCode, OpenClaw, Pi and Hermes. Availability follows each integration's supported contract.
-- Keep a persistent agent transcript for each Messages conversation. Follow-ups resume that transcript across agent process restarts; separate chats keep separate identities. Uncertain dispatch requires review rather than silently starting another transcript or repeating a turn.
-- Choose one answering agent per shared chat. Disconnect revokes delivery and reply access; reconnect retains saved transcript bindings. MCP connections remain separate tool access and do not automatically answer incoming messages.
-- Add native MCP configuration, repair and export with private backups and preservation of unrelated client settings.
-- Expand SiriusMsgKit and the Python and TypeScript SDKs with typed local administration for connections, configuration, diagnostics, activity and recovery. SDKs use the signed service's local protocol and preserve its permissions and privacy boundaries.
-- Improve managed agent process shutdown, Codex final-message handling and Pi runtime selection. Completion and cancellation tests now use explicit readiness and termination signals.
-- Refresh the app's robot artwork and give Sirius distinct greeting, list and detail poses. Local contact names remain on this Mac.
+- Update the bundled SwiftPython runtime and worker from Preview 1.2 to 0.7.0-preview.1.6, including Python 3.13.16.
+- Bring upstream fixes for concurrent retained-object operations, worker memory-limit enforcement and recovery, command completion, macOS fork safety and system TLS trust into Python hooks and adapters.
+- Align the SwiftPM dependency and signed app on Sparkle 2.10.0.
+- Align hook timeout recovery with SwiftPython’s worker-start pacing. Execution deadlines still apply; returning a timeout can include the wait for a ready replacement worker.
+- Refresh the checked-in public SwiftPython API reference and lock the package, signed app and worker to the same published release.
 
-This remains an alpha release. Six installed agent engines completed synthetic model turns through SiriusMsgKit, including same-chat recall after process restart and separate-chat transcript identity. Those checks do not qualify a new live Messages receive/send round trip. Sirius model turns, DeepSeek's paid API, MCP model tool invocation, paid-provider behavior and every installation variant remain unqualified.
-
-Recipient-visible typing dots remain unreliable and the Typing indicators control remains disabled. The stronger release-candidate messaging and recovery matrix remains unexecuted for this artifact: Automation send, outbound file send, rich-link send, capability honesty, Messages restart, service restart, subscriber reconnect and sleep/wake. Multi-agent group routing and Sirius connector separation remain proposals and are not included in this release.
+This remains an alpha release. The default Messages bridge remains native Swift and Python hooks remain optional. Recipient-visible typing indicators remain disabled. Live Messages send/receive, model-provider turns and the stronger recovery matrix are not newly qualified for this artifact.
