@@ -1,12 +1,14 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# SiriusMsg 0.2.0 (build 21)
+# SiriusMsg 0.2.0 (build 22)
 
-- Update the bundled SwiftPython runtime and worker from Preview 1.2 to 0.7.0-preview.1.6, including Python 3.13.16.
-- Bring upstream fixes for concurrent retained-object operations, worker memory-limit enforcement and recovery, command completion, macOS fork safety and system TLS trust into Python hooks and adapters.
-- Align the SwiftPM dependency and signed app on Sparkle 2.10.0.
-- Align hook timeout recovery with SwiftPython’s worker-start pacing. Execution deadlines still apply; returning a timeout can include the wait for a ready replacement worker.
-- Refresh the checked-in public SwiftPython API reference and lock the package, signed app and worker to the same published release.
+- Fix duplicate agent replies by applying the same chat-owner election to registered connections, external subscribers and internal adapters. An offline registered owner keeps its chat reserved, and skipped messages do not replay through the external path later.
+- Fix Chats to show applicable external connections under Shared with, with their current status and a link to manage them.
+- Request Contacts access from the main Chats screen, preserve permission requests during activation refreshes, retain picker-selected names after denied refreshes, and show Contacts access and recovery controls in Privacy & Access.
+- Deduplicate Activity entries for repeated delivery of the same message while retaining separate edit and unsend revisions. Attention rows and JSON exports now include sanitized operational reasons, and Connections distinguishes Needs review from Past failures.
+- Preserve uncertain send outcomes when Messages dispatch exceeds its deadline. Reconcile against the read-only Messages store and pause unresolved replies for review without rerunning the model or sending again. ScriptingBridge reads detailed chat metadata only for matching send targets.
+- Show iMessage or SMS from the latest valid message transport, including search and sorting, while preserving stored chat identity, sharing permissions and cursor keys.
+- Update the bundled SwiftPython runtime, worker, Python framework and matching public API reference to stable 0.7.0 with Python 3.13.17, including upstream security, certificate-trust and worker-streaming fixes. Sparkle remains 2.10.0.
 
-This remains an alpha release. The default Messages bridge remains native Swift and Python hooks remain optional. Recipient-visible typing indicators remain disabled. Live Messages send/receive, model-provider turns and the stronger recovery matrix are not newly qualified for this artifact.
+This remains an alpha release. Recipient-visible typing indicators remain disabled. Automatic recovery of a review item after a late send confirmation is not implemented. Live Messages send/receive, model-provider turns, real Contacts grant behavior on the Mac Studio, and the stronger recovery matrix are not newly qualified for this artifact.
