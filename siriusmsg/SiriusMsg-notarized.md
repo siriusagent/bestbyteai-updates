@@ -1,14 +1,11 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# SiriusMsg 0.2.0 (build 22)
+# SiriusMsg 0.2.0 (build 23)
 
-- Fix duplicate agent replies by applying the same chat-owner election to registered connections, external subscribers and internal adapters. An offline registered owner keeps its chat reserved, and skipped messages do not replay through the external path later.
-- Fix Chats to show applicable external connections under Shared with, with their current status and a link to manage them.
-- Request Contacts access from the main Chats screen, preserve permission requests during activation refreshes, retain picker-selected names after denied refreshes, and show Contacts access and recovery controls in Privacy & Access.
-- Deduplicate Activity entries for repeated delivery of the same message while retaining separate edit and unsend revisions. Attention rows and JSON exports now include sanitized operational reasons, and Connections distinguishes Needs review from Past failures.
-- Preserve uncertain send outcomes when Messages dispatch exceeds its deadline. Reconcile against the read-only Messages store and pause unresolved replies for review without rerunning the model or sending again. ScriptingBridge reads detailed chat metadata only for matching send targets.
-- Show iMessage or SMS from the latest valid message transport, including search and sorting, while preserving stored chat identity, sharing permissions and cursor keys.
-- Update the bundled SwiftPython runtime, worker, Python framework and matching public API reference to stable 0.7.0 with Python 3.13.17, including upstream security, certificate-trust and worker-streaming fixes. Sparkle remains 2.10.0.
+- Add Discard review items to registered agent connections, including Codex. Confirming discards only that connection's blocked review items, preserves the audit trail, and never resends messages or marks them successful.
+- Remove the oversized blue focus outline around the Chats and Connections lists while preserving mouse selection, arrow-key navigation and selected-row accessibility.
+- Preserve attachment access while durable connection jobs are queued or processing, fixing attachments that failed with “Attachment is not available to this connection.” The change applies to every attachment-capable durable runner and retains the service's connection-scoped access checks. Service failures now show readable review reasons.
+- Use a closer Sirius portrait only on its card in Choose an AI agent. All other Sirius avatars retain their original framing and complete gestures; the app icon is unchanged.
 
-This remains an alpha release. Recipient-visible typing indicators remain disabled. Automatic recovery of a review item after a late send confirmation is not implemented. Live Messages send/receive, model-provider turns, real Contacts grant behavior on the Mac Studio, and the stronger recovery matrix are not newly qualified for this artifact.
+This remains an alpha release. The existing Sirius external-adapter setup, chat permissions and conversation mappings are unchanged; migration to a registered Sirius connection is not included. SwiftPython remains 0.7.0 with Python 3.13.17 and Sparkle remains 2.10.0. Recipient-visible typing indicators and automatic recovery of review items after late send confirmation remain unavailable. This release does not newly qualify live Messages/provider turns or the stronger recovery matrix.

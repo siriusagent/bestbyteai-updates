@@ -5,16 +5,16 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         <title>SiriusMsg</title>
         <item>
             <title>0.2.0</title>
-            <pubDate>Wed, 28 Oct 2026 16:40:11 -0400</pubDate>
-            <sparkle:version>22</sparkle:version>
+            <pubDate>Wed, 28 Oct 2026 20:28:13 -0400</pubDate>
+            <sparkle:version>23</sparkle:version>
             <sparkle:shortVersionString>0.2.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <sparkle:releaseNotesLink sparkle:edSignature="fme+rAjFsBANGv9TOUNdJ768eh0BhbD4pMI/L5EHNmf0b/Ar4vapoGQp4IiIsAorwzPX4ZBkOcSFm3elc2eTCw==" sparkle:length="2191">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-0.2.0-build.22.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.22/SiriusMsg-0.2.0-build.22.dmg" length="70680817" type="application/octet-stream" sparkle:edSignature="tpDoH3RKnR4C1upH74mRADnoNhw94nGEcIBorvhSc3FiGLZ4SPwYCDHfH+ZNNTSIsyWBmtr80jmgTKvx9+lPBw=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="frBWaRaXw3wbz16wAMyYDCqrIWgxjLHFaaDG408ji+FX+KhEHlCyEsd76eJnkhoSrmPhcNZp6ha6Paj5Q8nuDA==" sparkle:length="1669">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-0.2.0-build.23.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.23/SiriusMsg-0.2.0-build.23.dmg" length="72096362" type="application/octet-stream" sparkle:edSignature="UfgC0WQgMQIBBVRfzd1oY2K1jalXpfoGL00C9Y4rhubl4HF705Y17KQ+dlMRGCbw2BkxQPgt+XHeRJtY3+gPCA=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: orgm85nx3CJUJZUW/AV6Lst16WK9bIOU5xa+u3a9Cl9x3b4iSXxvfrJkktNmSEH3yqWRxHyKjfxPMRs0CDREDQ==
+edSignature: QnDPcbUkfj3GqCJ/u5fmdqN74q3vsqmh5Zql8a/LueetrBCoSTPsb2eZElGCmYVWyXCvtfjAook/KtWzK1orDg==
 length: 1413
 -->
