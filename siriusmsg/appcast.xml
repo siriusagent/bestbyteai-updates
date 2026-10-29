@@ -5,16 +5,16 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         <title>SiriusMsg</title>
         <item>
             <title>0.2.0</title>
-            <pubDate>Wed, 28 Oct 2026 20:28:13 -0400</pubDate>
-            <sparkle:version>23</sparkle:version>
+            <pubDate>Wed, 28 Oct 2026 21:16:35 -0400</pubDate>
+            <sparkle:version>24</sparkle:version>
             <sparkle:shortVersionString>0.2.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <sparkle:releaseNotesLink sparkle:edSignature="frBWaRaXw3wbz16wAMyYDCqrIWgxjLHFaaDG408ji+FX+KhEHlCyEsd76eJnkhoSrmPhcNZp6ha6Paj5Q8nuDA==" sparkle:length="1669">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-0.2.0-build.23.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.23/SiriusMsg-0.2.0-build.23.dmg" length="72096362" type="application/octet-stream" sparkle:edSignature="UfgC0WQgMQIBBVRfzd1oY2K1jalXpfoGL00C9Y4rhubl4HF705Y17KQ+dlMRGCbw2BkxQPgt+XHeRJtY3+gPCA=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="rLrAJQHUiFbR2gZknQuyjnpiHrjYIAVoEayVZ9nm8qU1afdT8OGaYDftDXcvwsIZtT8z6YZUfKJyO9Y1HAXKAg==" sparkle:length="1465">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-0.2.0-build.24.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.24/SiriusMsg-0.2.0-build.24.dmg" length="63844985" type="application/octet-stream" sparkle:edSignature="c4XwqFczo2cTUv98IvRjVeeRlKE0iMZlB3YI5un4Hxw3kS5Q89xwQLso4jVG3NsXJ7XD8znus+jD43JHTGMwBw=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: QnDPcbUkfj3GqCJ/u5fmdqN74q3vsqmh5Zql8a/LueetrBCoSTPsb2eZElGCmYVWyXCvtfjAook/KtWzK1orDg==
+edSignature: yonT4ivDbAttmA6dxZrnJMDxaMx5lsCubgi3IBOpwhAUkcmiMDkNMtxawreRKq0lE/fylx95YgFe7P2hZaIVAA==
 length: 1413
 -->

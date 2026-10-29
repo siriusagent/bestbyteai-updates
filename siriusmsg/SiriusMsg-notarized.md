@@ -1,11 +1,12 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# SiriusMsg 0.2.0 (build 23)
+# SiriusMsg 0.2.0 (build 24)
 
-- Add Discard review items to registered agent connections, including Codex. Confirming discards only that connection's blocked review items, preserves the audit trail, and never resends messages or marks them successful.
-- Remove the oversized blue focus outline around the Chats and Connections lists while preserving mouse selection, arrow-key navigation and selected-row accessibility.
-- Preserve attachment access while durable connection jobs are queued or processing, fixing attachments that failed with “Attachment is not available to this connection.” The change applies to every attachment-capable durable runner and retains the service's connection-scoped access checks. Service failures now show readable review reasons.
-- Use a closer Sirius portrait only on its card in Choose an AI agent. All other Sirius avatars retain their original framing and complete gestures; the app icon is unchanged.
+[Download the branded SiriusMsg installer](https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.24/SiriusMsg-0.2.0-build.24-installer.zip), extract the ZIP, open the DMG, then drag SiriusMsg to Applications.
 
-This remains an alpha release. The existing Sirius external-adapter setup, chat permissions and conversation mappings are unchanged; migration to a registered Sirius connection is not included. SwiftPython remains 0.7.0 with Python 3.13.17 and Sparkle remains 2.10.0. Recipient-visible typing indicators and automatic recovery of review items after late send confirmation remain unavailable. This release does not newly qualify live Messages/provider turns or the stronger recovery matrix.
+- Brand the mounted installer volume with the approved SiriusMsg app icon and arrange the real app and Applications shortcut in Finder.
+- Add a metadata-preserving installer ZIP so the extracted DMG also displays the SiriusMsg icon in Finder. A direct raw-DMG download uses macOS's generic file icon; opening it shows the same branded installer. Sparkle continues to use the signed, notarized DMG directly.
+- Include build 23's shared attachment-access repair, connection review clearing, list focus-outline fix and chooser-only Sirius portrait.
+
+This remains an alpha release. SwiftPython remains 0.7.0 with Python 3.13.17 and Sparkle remains 2.10.0. Existing Sirius external-adapter setup, chat permissions and conversation mappings are unchanged. Recipient-visible typing indicators and automatic recovery of review items after late send confirmation remain unavailable. This release does not newly qualify live Messages/provider turns or the stronger recovery matrix.
