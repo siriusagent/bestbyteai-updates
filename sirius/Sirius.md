@@ -37,10 +37,9 @@ Long conversations also recover earlier requests and decisions more reliably
 after context compression. Better handling of active provider requests reduces
 interruptions during longer waits.
 
-## Ready to try
+## Start with a task
 
-Install Sirius, connect your preferred model, and start with a task. On first
-launch, Sirius downloads and verifies its core runtime after license acceptance.
-Existing installs receive the matching runtime during the upgrade.
+Choose your preferred model and try a task: research a question, inspect a
+codebase, or create something you can keep in Library.
 
 Requires macOS 26 or later on an Apple silicon Mac.
