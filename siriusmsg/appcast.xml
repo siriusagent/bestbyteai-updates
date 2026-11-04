@@ -5,16 +5,16 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         <title>SiriusMsg</title>
         <item>
             <title>0.2.0</title>
-            <pubDate>Wed, 28 Oct 2026 21:16:35 -0400</pubDate>
-            <sparkle:version>24</sparkle:version>
+            <pubDate>Tue, 03 Nov 2026 22:47:51 -0500</pubDate>
+            <sparkle:version>25</sparkle:version>
             <sparkle:shortVersionString>0.2.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <sparkle:releaseNotesLink sparkle:edSignature="rLrAJQHUiFbR2gZknQuyjnpiHrjYIAVoEayVZ9nm8qU1afdT8OGaYDftDXcvwsIZtT8z6YZUfKJyO9Y1HAXKAg==" sparkle:length="1465">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-0.2.0-build.24.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.24/SiriusMsg-0.2.0-build.24.dmg" length="63844985" type="application/octet-stream" sparkle:edSignature="c4XwqFczo2cTUv98IvRjVeeRlKE0iMZlB3YI5un4Hxw3kS5Q89xwQLso4jVG3NsXJ7XD8znus+jD43JHTGMwBw=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="mX2BpzO12PUdyvHZ3ODypM7rpuFcVKWLglXTi6QFR4oMlw6KeXLWyrS/ctcXOZCZv2vFNeheHnYuHh1yOlB3Ag==" sparkle:length="2021">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-0.2.0-build.25.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.25/SiriusMsg-0.2.0-build.25.dmg" length="64452997" type="application/octet-stream" sparkle:edSignature="iEE1ZxxO0H0QdKSRG4xaX5kl8wnC+osSjgrQn+c2J9KyZOxoOHR9Yb+x35xAIfF6PiM/6CXTNz+mmc1TCcG8Cg=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: yonT4ivDbAttmA6dxZrnJMDxaMx5lsCubgi3IBOpwhAUkcmiMDkNMtxawreRKq0lE/fylx95YgFe7P2hZaIVAA==
+edSignature: w7EKrMPRuen1IvExQJ1/wt5Z8c+ehXGX829JbICykNg0g4IwLEuiI25EhFz0HGLPE9d39B6GQf0pbnG+IveTAg==
 length: 1413
 -->
