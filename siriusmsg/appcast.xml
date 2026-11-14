@@ -5,16 +5,16 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         <title>SiriusMsg</title>
         <item>
             <title>0.2.0</title>
-            <pubDate>Tue, 03 Nov 2026 22:47:51 -0500</pubDate>
-            <sparkle:version>25</sparkle:version>
+            <pubDate>Sat, 14 Nov 2026 09:56:13 -0500</pubDate>
+            <sparkle:version>26</sparkle:version>
             <sparkle:shortVersionString>0.2.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <sparkle:releaseNotesLink sparkle:edSignature="mX2BpzO12PUdyvHZ3ODypM7rpuFcVKWLglXTi6QFR4oMlw6KeXLWyrS/ctcXOZCZv2vFNeheHnYuHh1yOlB3Ag==" sparkle:length="2021">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-0.2.0-build.25.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.25/SiriusMsg-0.2.0-build.25.dmg" length="64452997" type="application/octet-stream" sparkle:edSignature="iEE1ZxxO0H0QdKSRG4xaX5kl8wnC+osSjgrQn+c2J9KyZOxoOHR9Yb+x35xAIfF6PiM/6CXTNz+mmc1TCcG8Cg=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="SHWZTfX20ybX+4fbtWUg9KXkmjycsIAW0cmf08NB9/IyfDNRH3qMD/WxNqdZUsevKMM/y8URixJrlR8xuAE+Ag==" sparkle:length="1465">https://updates.bestbyteai.com/siriusmsg/SiriusMsg-0.2.0-build.26.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.26/SiriusMsg-0.2.0-build.26.dmg" length="64520176" type="application/octet-stream" sparkle:edSignature="vhxz+iYJYE0VAlI2kChjOr8X28eUcD8xxIJmY379oQwESby6FhV79uo+jrbWMWcOG9aUjdURPyzNjrg1GKV6AA=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: w7EKrMPRuen1IvExQJ1/wt5Z8c+ehXGX829JbICykNg0g4IwLEuiI25EhFz0HGLPE9d39B6GQf0pbnG+IveTAg==
+edSignature: Afmp/omK/Vhi5EkKK+MeXuJ9sdNAL2TFYfaaRwv9V7j2fHs66Ca5ox1prO5fv68X8HVMUsppkgyQ0GUBPmSgBA==
 length: 1413
 -->

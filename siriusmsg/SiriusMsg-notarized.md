@@ -1,14 +1,13 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# SiriusMsg 0.2.0 (build 25)
+# SiriusMsg 0.2.0 (build 26)
 
-[Download the branded SiriusMsg installer](https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.25/SiriusMsg-0.2.0-build.25-installer.zip), extract the ZIP, open the DMG, then drag SiriusMsg to Applications.
+[Download the branded SiriusMsg installer](https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.26/SiriusMsg-0.2.0-build.26-installer.zip), extract the ZIP, open the DMG, then drag SiriusMsg to Applications.
 
-- Add the native Sirius connection through Sirius's app-owned ACP service. Connect from SiriusMsg and approve access in Sirius's Connected Apps settings. Upgrading the previous channel preserves conversation identities, chat permissions and retained review history.
-- Keep new messages and replies moving after an earlier turn needs review. Back-to-back messages queue for the existing conversation; the uncertain original message is retained without automatically repeating its work or reply. This covers Codex and the shared Claude, OpenCode, Hermes, Pi and OpenClaw delivery paths.
-- Show one Sirius connection after migration, retain access to previous review items, and keep unrelated connections and their activity separate.
-- Present Markdown replies as readable Messages text, with clean bullets and usable links. Optional native formatting requires a ready, explicitly enabled provider.
-- Preserve accepted replies with their original connection when the answering agent changes, and improve ACP transport and durable attachment handling.
+- See which connection handles new messages in the **Shared with** list. The current connection is marked **Selected**. Use **Use** to select another connection, or click its name to open its chat permissions.
+- Pair separate Sirius connections for different approved workspaces. Workspace names identify the connections, and paths distinguish workspaces with the same name.
+- Give shared Messages conversations recognizable titles in Sirius. When Contacts access is granted, SiriusMsg can use matching contact names for chats shared with Sirius.
+- Send a follow-up during an active Sirius reply to interrupt and redirect that turn when the connected Sirius version supports steering. Follow-ups from the same sender apply in order. Older Sirius versions queue them for the next turn.
 
-This remains an alpha release. Native Sirius setup requires a compatible Sirius app and its normal approval and migration flow; updating SiriusMsg alone does not approve a new connection. SwiftPython remains 0.7.0 with Python 3.13.17 and Sparkle remains 2.10.0. Recipient-visible typing indicators and automatic recovery of review items after late send confirmation remain unavailable. This release does not newly qualify the complete live Messages/provider and recovery matrix.
+This is an alpha release. Sirius connections require approval in Sirius. Automatic recovery of review items after late send confirmation and recipient-visible typing remain unavailable.
