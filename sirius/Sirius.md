@@ -1,53 +1,29 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius 0.1.8
+# Sirius 0.1.8.1
 
-## Sign in with a smart card in the browser
+- GPT-6.2 Sol and GPT-6.2 Astra appear in the model picker when your connected
+  OpenAI account offers them.
 
-The built-in browser now supports CAC, PIV, and other compatible client
-certificates. On a site that requests one, choose your certificate in the
-macOS picker and enter your PIN if macOS asks. We tested CAC sign-in on
-MyNavy Portal and Navy eHA in pre-release builds.
+## Update a local model server from Sirius
 
-## Browser Use
+- If an Ollama model requires a newer server, Sirius shows the installed and
+  required versions before the download. Open the vendor updater from the
+  model, then check the server again to continue.
+- Find update controls for Ollama and oMLX under Settings → Network &
+  Providers → On This Mac. The oMLX load error also offers the update route.
+- Ollama can reuse more of the previous prompt on follow-up messages. Sirius
+  carries original message times and prior Ollama reasoning with the retained
+  conversation.
+- When the model keeps reading the same web pages and gets the same results,
+  Sirius pauses the repeated reads and prompts it to reconsider its next step.
 
-- Paste tabular data into supported spreadsheets and embedded editors with
-  native Paste. Sirius preserves the current selection so the editor can
-  handle the paste.
-- Hold keys or mouse buttons and run timed input sequences on interactive
-  pages. Sirius can detect visible changes during a sequence even when the
-  final view looks unchanged.
-- Compatible pages can lock Sirius's browser pointer while your physical
-  mouse stays free.
-- Browser screenshots can give Sirius a short history of recent frames for
-  comparison. Full viewport screenshots now use the same coordinates as
-  the page.
+## Work with PDFs and browser sign-ins
 
-## Messages and channel conversations
-
-Messages now connects through the separate SiriusMsg app. Choose a chat
-and workspace in SiriusMsg, then approve the connection in Sirius under
-**Settings → Permissions & Security → Connected Apps**. Approve attachment
-reading and sending reply files separately for each workspace. Previous
-Messages conversations remain visible in Channels.
-
-Channel conversations use the contact, space, channel, or thread name when
-the provider supplies it. Supported incoming files appear on the message
-that brought them in. A follow-up from the same sender in the same
-conversation and thread can redirect a running turn while keeping work
-Sirius has already completed.
-
-## Questions, settings, and chat fixes
-
-- Clarification questions open above the composer, one at a time. Submit
-  from the question strip or answer in chat. When Sirius recognizes a chat
-  reply as the answer, it marks the original question **Answered in chat**.
-- **Permissions & Security** puts Connected Apps first and gives Tool
-  Permissions, Activity, and On This Mac their own tabs.
-- Recent images remain available to the model when you reopen a
-  conversation. Memory and profile reminders let a text reply finish.
-- Codex sessions now supply the session identity needed to reuse the
-  conversation's prompt cache.
+- Mark up PDFs in Reader, then save or export the edited document.
+- Sirius Security Key brings saved website logins and supported passkey flows
+  into the built-in browser. Website sign-in can continue through a separate
+  username and password page and pause for you to complete MFA.
 
 Requires macOS 26 or later on an Apple silicon Mac.
