@@ -1,30 +1,15 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius 0.1.8.7
+# Sirius 0.1.8.8 · Build 215
 
-## Remote chat and approvals
+## GPT prompt caching
 
-- **A file can be the whole reply.** Ask for a PDF and Sirius can send the document without a caption. Telegram and Discord support file-only replies, and WhatsApp can now upload documents. File delivery also works when you reopen a channel conversation on your Mac.
-- **Keep chatting after an approval.** A database lock could leave a conversation stuck after a failed turn. You can now follow up in the same thread.
-- **Review requests are easier to read.** Telegram and WhatsApp show a **Review request** button. Discord and Google Chat show a labeled link. Each request includes the action, a six-character comparison code, and its expiry.
-- **See where your file went.** Google Chat, SMS, and IRC tell you when a file is saved in the Sirius conversation. If Sirius cannot confirm an upload, it tells you and keeps the attachment available.
+GPT-6.2 Sol and Astra can now reuse the instructions Sirius sends on each step of a conversation. This fixes a prompt-format issue that made repeated instructions count as fresh input, including during tool use. The fix applies to ChatGPT sign-in and the OpenAI API. Background reflection also reuses the cache for the conversation it is reviewing.
 
-## Memory and conversation history
+## Background memory and profile nudges
 
-- **Find a detail across chats.** When a history search turns up more than fits in one result, Sirius keeps dated excerpts from different conversations and can reopen the original messages. A follow-up search can recover a person or occasion you named, even when the first search left it out.
-- Memory search gives more weight to distinctive words, project names, and filenames. Saved facts rank ahead of chat recaps, and a long entry can return the passage that matched. Sirius can also report when it finds no supporting evidence.
-- After a long conversation is condensed, Sirius can look back through its messages and tool results to recover details such as the contents of an earlier file read.
-- Similar notes can stay separate. Sirius rejects proposed merges that lose details such as dates or addresses. Automatic deletion based on age and lack of use is off by default. Deleting a chat removes its recap and preserves facts you saved separately. If a profile update skips a section, Sirius identifies it.
-
-## Browser Use
-
-- Sirius now sees page text and a numbered outline of controls. Toolbar buttons, selections, checkboxes, expanded menus, and help text have clearer labels. Duplicate tooltips collapse, while separate actions in the same row remain individually selectable.
-- After a click, Sirius retains the name of the original control even if the page redraws. If an action times out, it can tell whether input was sent and whether it observed the result.
-- Vision-capable models can see the current viewport alongside the controls after opening, inspecting, or interacting with a supported page. Sensitive-input screens retain their capture protections.
-
-## Files and conversation display
-
-- **Play audio and video in DiffTree.** Workspace media opens in a native player, including files above the text-preview size limit. Play, pause, seek, or take video full screen. Playback stops when you switch files or hide DiffTree.
-- **The sidebar respects your choice.** If you reopen it while using DiffTree in a narrow window, it stays open until you hide it.
-- **Prices render correctly in chat.** Dollar amounts retain their dollar signs, spacing, and bold formatting while a reply streams and after it finishes. This release includes SiriusMarkdown 0.7.25.
+- **Keep chatting while Sirius reviews what to remember.** After a completed turn, a nudge queues a review on your configured background provider. Memory reviews look for facts worth remembering. Profile reviews look for stable preferences you’ve shared. Both get priority over pending chat recaps and can finish without saving anything. Switching chats, closing a session, or quitting Sirius leaves queued work for the background worker.
+- **Sirius can still remember something on the spot.** Ask in your own words, or let Sirius save a detail when it comes up. The background reviews also work across remote conversations, including SiriusMsg.
+- **A profile question stays in the conversation where it came up.** For example, if you ask for a recurring Monday briefing and haven’t given a time zone, the reviewer can suggest a question. On your next message in that private chat, Sirius can ask it in its reply or skip it if a placeholder will do. A suggestion alone never becomes a saved preference.
+- **Choose how often reviews run.** In **Settings → Context & Memory**, turn memory and profile nudges on or off independently and set their intervals. Memory can come due after chat turns or tool iterations. Profile follows chat turns. The chat quick menu can mute both. Ask mode and Temporary Chat skip periodic reviews.
