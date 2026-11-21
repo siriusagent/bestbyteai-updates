@@ -1,16 +1,19 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius 0.1.8.11 · Build 223
+# Sirius 0.1.8.12 · Build 235
 
-## Read Aloud
+## Terminal
 
-- **Hear the contents of a table.** Sirius reads each row with its column labels and calls out blank cells.
-- **Follow the steps and corrections.** Nested steps keep their numbering, checklist items include their status, and regular playback skips crossed-out text. Read All Text marks crossed-out text explicitly.
-- **Hear technical details.** Bare links include their paths, and shell commands pronounce flags, pipes, and redirects. Mermaid flowcharts describe their branches.
-- **Follow the math.** LaTeX narration keeps the structure of fractions, roots, bounds, subscripts, and matrix rows. Display equations play separately from the prose that follows.
+- **Smooth live output and animations.** Sustained terminal output and full-screen TUIs hold a steady frame rate without stalling while completed history pages archive to disk or while the renderer flushes in-flight updates.
+- **Stay responsive with long scrollback.** Large terminal histories no longer freeze the app on the main thread; command navigation resolves its target in the background instead of re-laying out the entire buffer.
+- **Isolated host command runs.** Host commands run in their own PTY so your interactive shell and any typed input stay intact. If an alternate-screen program exits abruptly, Sirius restores the normal screen and cursor automatically and reports the real exit status.
 
-## Notifications and feedback
+## Providers and sign-in
 
-- **Keep notifications when task storage is temporarily unavailable.** Existing entries and unread status stay visible. Sirius restores access to task and subagent history when the store returns.
-- **Use the configured background provider for feedback analysis.** Sirius keeps the local report if analysis is unavailable and gives the investigator access only to evidence sections included in the report.
+- **Streamlined Google Gemini sign-in.** Connect Gemini with **Sign in with Google** or an API key. Sirius reserves a loopback port automatically for the bundled client, shows clearer browser-launch, consent, and retry states, and keeps an optional custom Google sign-in client available.
+- **Better prompt caching on OpenRouter and Gemini.** With caching enabled, OpenRouter uses session-scoped routing affinity and configured Claude cache controls. Direct Gemini keeps stable tool guidance in the system instruction and honors a configured cached-content resource.
+
+## Skills
+
+- **Academic Paper Writer.** Added a bundled skill for drafting, revising, and auditing scientific manuscripts with notebook-generated figures, Mermaid workflow diagrams, consistency checks, and sidecar provenance tracking.
