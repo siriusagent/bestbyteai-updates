@@ -1,13 +1,12 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# SiriusMsg 0.2.0 (build 26)
+# SiriusMsg 0.2.0 (build 27)
 
-[Download the branded SiriusMsg installer](https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.26/SiriusMsg-0.2.0-build.26-installer.zip), extract the ZIP, open the DMG, then drag SiriusMsg to Applications.
+[Download the branded SiriusMsg installer](https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.27/SiriusMsg-0.2.0-build.27-installer.zip), extract the ZIP, open the DMG, then drag SiriusMsg to Applications.
 
-- See which connection handles new messages in the **Shared with** list. The current connection is marked **Selected**. Use **Use** to select another connection, or click its name to open its chat permissions.
-- Pair separate Sirius connections for different approved workspaces. Workspace names identify the connections, and paths distinguish workspaces with the same name.
-- Give shared Messages conversations recognizable titles in Sirius. When Contacts access is granted, SiriusMsg can use matching contact names for chats shared with Sirius.
-- Send a follow-up during an active Sirius reply to interrupt and redirect that turn when the connected Sirius version supports steering. Follow-ups from the same sender apply in order. Older Sirius versions queue them for the next turn.
+- Inbound inline replies now give connected agents the referenced message ID and, when available, a quote from the same shared chat. The Swift, Python, and TypeScript SDKs expose both fields.
+- Text-only connections keep receiving messages from other chats when one chat is paused for an attachment. The paused chat resumes in order when the connection enables attachment support.
+- Settings › Security › Updates now offers opt-in automatic installation. SiriusMsg verifies that the old bridge has exited before installing, reopens after the update, and retries bridge startup until the agent answers.
 
-This is an alpha release. Sirius connections require approval in Sirius. Automatic recovery of review items after late send confirmation and recipient-visible typing remain unavailable.
+This is an alpha release. Automatic recovery of review items after late send confirmation and recipient-visible typing remain unavailable.
