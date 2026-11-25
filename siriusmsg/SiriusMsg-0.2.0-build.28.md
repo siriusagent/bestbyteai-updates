@@ -1,0 +1,12 @@
+<!-- sparkle-sign-warning:
+IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
+-->
+# SiriusMsg 0.2.0 (build 28)
+
+[Download the branded SiriusMsg installer](https://github.com/siriusagent/siriusmsg/releases/download/v0.2.0-build.28/SiriusMsg-0.2.0-build.28-installer.zip), extract the ZIP, open the DMG, then drag SiriusMsg to Applications.
+
+- Sirius keeps receiving iMessages after an unsupported attachment. If the message contains text or usable files, Sirius receives them with a note about the missing attachment.
+- A follow-up can steer the active Sirius turn when supported. A message that arrived on time can also wait in the queue for the next turn.
+- Connections shows whether the Sirius route is ready alongside the count of individual items that need review.
+
+This is an alpha release. Sirius connections require approval in Sirius.
