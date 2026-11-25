@@ -1,7 +1,9 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius 0.1.8.18
+# Sirius 0.1.8.19
+
+This release restores in-app updates for Macs that could see 0.1.8.18 but were told they were already up to date. It includes the following changes from 0.1.8.18.
 
 Sirius can now install updates when you quit, use its browser from connected messaging chats, and handle more of your Apple Mail and Messages work.
 
