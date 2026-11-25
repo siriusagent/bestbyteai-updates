@@ -1,47 +1,32 @@
 <!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires updating signatures in appcasts that reference this file! This will involve re-running generate_appcast or sign_update.
 -->
-# Sirius 0.1.8.17
+# Sirius 0.1.8.18
 
-Sirius chats can now work together, and SiriusBrowser can use a connected Robinhood Agent Card at supported checkouts. You can also retry a stalled Goal from its saved progress and share the latest version of an edited PDF with your chat.
+Sirius can now install updates when you quit, use its browser from connected messaging chats, and handle more of your Apple Mail and Messages work.
 
-## Wallets & Payments
+## Updates
 
-- **Connect a Robinhood Agent Card.** In **Settings → Wallets & Payments → Connections**, sign in through SiriusBrowser, verify the card, and optionally make it your default for agent checkout. The connection can be paused or disconnected from Settings. Coinbase CDP and Robinhood have independent connection and approval settings.
-- **Set spending rules for each payment method.** The Spending tab brings together the **Allow agent purchases** switch, per-order and monthly limits, allowed merchants, and confirmed spending. Choose **Ask every time** or allow eligible USD card purchases **Within rules**. Strict mode and matching ask rules still require approval. Pending checkouts count against the available card limit across app restarts and concurrent checkouts.
-- **Use the approved card at checkout.** Sirius keeps the selected card attached to the review and checks the current merchant, currency, and total before filling supported checkout forms, including supported Stripe card fields. The card details stay in the native checkout flow. Filling the card and submitting the order are separate actions.
-- **See what happened to a payment.** Wallet Activity shows paid, pending, declined, blocked, denied, canceled, and failed attempts, with details for each. Opening Activity or choosing **Refresh** checks recent unresolved card checkouts against available issuer history. A matching authorization awaiting settlement stays **Pending** and can move to **Paid** when it posts. Sirius can also confirm a supported itch.io purchase using the merchant receipt and matching issuer authorization.
-- **Save a personal card for your own checkout.** Turn on **Offer saved cards at checkout** to use a card stored in macOS Keychain. Touch ID or your Mac password unlocks the fill on supported HTTPS forms. You enter any required security code and submit the form yourself.
-- **Review x402 payments from the page.** On supported payment pages, choose **Review payment** to see the amount, network, and recipient. **Review in Composer** brings that offer to chat without replacing your draft. The payment stays tied to the offer you reviewed and always requires your approval. Coinbase CDP and x402 payments use the **Wallet payments** component in Settings.
+- **Install updates automatically.** Turn on **Install updates automatically** in **Settings → General → Updates**. When an update is ready, Sirius saves pending work, installs on quit, and reopens. You can still check for and install updates on demand.
+- Sirius sets up the matching Core Runtime after an app update. Runtime updates remain available through **Settings → Components**.
 
-## Chats can work together
+## Channels and chat collaboration
 
-- **Send messages and files between saved chats on the same Mac.** Ask one chat to send another a note, link, or file, check delivery, or watch for updates. The receiving transcript identifies the source chat, and clicking its label opens that conversation.
-- **Reach a chat even when it’s closed.** With Sirius running and the main window available, a saved desktop chat can reopen in the background to receive and answer a message without taking focus. A saved conversation on a configured messaging channel can also receive and reply through that channel.
-- **Check a Goal by name.** A chat can find a saved Goal by its objective, chat title, or project and check its status. A request to control a Goal goes to the chat that owns the verified Goal.
+- **Browse from a connected channel with the chat closed.** Sirius can open pages and interact with websites in the background. Each conversation keeps its own tabs and website data. After inactivity, Sirius closes the browser window and restores the conversation’s tabs the next time it needs them.
+- **Send notes to idle connected chats.** Messages between saved Sirius chats can appear in an idle connected conversation without starting a turn there. A running turn can pick up the message while it works. The transcript identifies the sending chat.
+- With **SiriusMsg 0.2.0 build 28**, follow-up texts can steer an active Sirius turn or wait for the next turn. A message can still forward its usable text and files when one attachment is unsupported.
+- Browser tools give clearer errors when a page requires a browser that is unavailable. Public search and supported document and caption lookups can still work in those cases.
 
-## Approvals and activity
+## Messages and Apple Mail
 
-- Wallet, credential, tool, and computer-use requests use a consistent layout above the composer, with the action and scope up front and additional information under **Details**. Strict-mode requests for authenticated HTTP calls show the credential, destination, and method together.
-- When a permission or connection change withdraws a pending request, Sirius explains what happened in the transcript. Unrelated requests stay open. **Permissions & Security → Activity** shows the decision, scope, and source in plain language, with a direct link to Wallet Activity.
+- **Send PDFs and other attachments supported by Apple Messages.** Sirius preserves filenames and reports text submission and each attachment transfer separately. The report labels recipient delivery as unconfirmed when there is no delivery receipt.
+- **Work across Apple Mail accounts.** List and search mailboxes and drafts, read a message and its attachment details, and save an attachment. Search results show which portions of the mailbox were scanned and where to continue.
+- **Compose and organize mail.** Save drafts, send from a selected account, reply, and forward with attachments. Sirius checks the From address and the attachments Mail accepted. You can also move or archive mail, change flags, check for new mail, and sync an account. Send results reflect what Mail confirms.
 
-## Goals and notifications
+## Browser, Reader, and chats
 
-- **Retry a stalled Goal.** If a Goal stopped because it made no progress, press **Play** to continue from its saved progress. Sirius resets the no-progress counter and keeps the Goal’s existing usage and limits. Expand the Goal tab to see its objective.
-- Goal views and Notification Center refresh when saved changes arrive. Sirius processes those updates off the main thread to keep the sidebar and notification drawer responsive during active work.
-
-## Browser and passkeys
-
-- Closing the selected site-opened popup returns you to its opener when that tab is still open. Browser Use can target visible controls in embedded frames from the current viewport and recognize when a sequence of actions keeps returning to the same page or form state.
-- When signing in with a passkey on your phone, choose which passkey to use in Sirius if the phone returns several for the site.
-
-## Reader and workspace Start
-
-- **Share the latest version of an edited PDF.** When you send a message with an edited PDF attachment open in Reader, Sirius finishes saving and gives the chat a read-only copy for that turn, with the pages containing Reader signature marks identified.
-- Reader keeps a failed file open in its tab and offers **Retry**, **Locate File**, and **Show Parent Folder** so you can recover it.
-- The workspace Start page shows compact previews for recent files and can display **Favorites** and **Frequently Visited** together.
-- Text search preserves file and line details for paths such as `release-255-draft`.
-
-## Updated license terms
-
-The Sirius license now covers agent-assisted purchases and payments. Existing users will see the updated agreement on launch. If the core runtime is already ready, choose **Accept & Continue** after reviewing the terms.
+- Use eligible logins saved in Sirius Security Key for supported website sign-in requests. Sirius scopes the request to the site and tab, and hands off to you when the site requires verification.
+- Sirius masks credentials in browser URLs in new tool results, reopened transcripts, and chat search previews.
+- Bring Reader annotations into a chat draft. Pending history loads leave the current composer usable, and you can select another chat or start a new one while a history load is underway. Drafts continue saving when the database is busy.
+- New interactive apps use Mac-inspired layout and icon defaults. Saving an app to Library retains its state.
+- Fixed file search results for paths that contain delimiter-like text. Background browser tabs also clear their tooltips when hidden.
